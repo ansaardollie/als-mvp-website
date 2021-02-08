@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'als-website';
+   title = 'als-website';
 
-  constructor() {
-    console.log(this.title);
+  onHomePage = true;
+  showCart = false;
+
+  constructor(private router: Router){
+
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe(
+      (nextEvent) => {
+        if (nextEvent instanceof NavigationEnd){
+          this.onHomePage = nextEvent.url == '/' || nextEvent.url == '/home';
+          this.showCart = !this.onHomePage;
+        }
+      }
+    );
   }
 }
