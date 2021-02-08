@@ -9,5 +9,6 @@ export class AppComponent {
   title = 'als-website';
 
   constructor() {
+    console.log(this.title);
   }
 }
