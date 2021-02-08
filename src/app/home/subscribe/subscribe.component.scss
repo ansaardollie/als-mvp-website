@@ -1,0 +1,145 @@
+div.container {
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+div.content {
+  height: 80vh;
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 60px 1fr 1fr 60px;
+  grid-template-rows: 200px 80px 80px 1fr;
+  grid-template-areas: "lgut title title rgut"
+    "lgut fname lname rgut"
+    "lgut email email rgut"
+    "lgut submit submit rgut";
+}
+
+hr.divider {
+  width: 80vw;
+  height: 10px;
+  background-color: black;
+  margin: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.section-heading {
+  // font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.small-heading {
+  font-size: 1.35rem;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+div.title {
+  grid-area: title;
+}
+
+div.input input {
+  text-align: left;
+}
+
+div.email-input {
+  grid-area: email;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+div.first-name-input {
+  grid-area: fname;
+
+  margin-left: auto;
+  margin-right: 2.5vw;
+
+}
+
+div.last-name-input {
+  grid-area: lname;
+
+  margin-left: 2.5vw;
+  margin-right: auto;
+}
+
+.email-input input {
+  width: 50vw;
+}
+
+.first-name-input input {
+  width: 22.5vw;
+}
+
+.last-name-input input {
+  width: 22.5vw;
+}
+
+div.submit-button {
+  grid-area: submit;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+div.container img {
+  width: 60vw;
+  margin: 30px auto;
+}
+
+
+@media (min-width: 1200px) {}
+
+@media (max-width: 1199px) {
+  div.content {
+    height: fit-content
+  }
+
+  div.submit-button {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 899px) {}
+
+@media (max-width: 599px) {
+
+  div.content {
+
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-rows: 200px 45px 45px 45px 1fr;
+    grid-template-areas: "lgut title rgut"
+      "lgut fname rgut"
+      "lgut lname rgut"
+      "lgut email rgut"
+      "lgut submit rgut";
+  }
+
+  div.content div.input {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  div.content input {
+    width: 100% !important;
+    justify-self: center !important;
+  }
+
+  hr.divider {
+    width: calc(100vw -  40px);
+    margin: 0;
+  }
+
+  .small-heading {
+    width: 100%;
+  }
+
+}

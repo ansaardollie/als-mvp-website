@@ -1,0 +1,141 @@
+div.story {
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 15px 2fr 2fr 15px;
+  grid-template-rows: 50px 1fr 15px;
+  grid-template-areas: "nav nav nav nav"
+    "lgut content image rgut"
+    "bgut bgut bgut bgut";
+}
+
+div.story-content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+}
+
+div.story-content>div {
+  text-align: right;
+  margin: 15px 0px;
+}
+
+div.story-content>div.info {
+  padding-left: 50px;
+}
+
+
+div.story-title {
+  font-weight: bold;
+  justify-self: center;
+  text-transform: uppercase;
+}
+
+div.story>img {
+  grid-area: image;
+  justify-self: center;
+  width: 40vw;
+  border-radius: 30px;
+  border: 5px solid black;
+  box-shadow: 3px 3px 8px grey;
+}
+
+@media (min-width: 1200px) {}
+
+@media (max-width: 1199px) {
+  div.story {
+    grid-template-columns: 15px 2fr 3fr 15px;
+
+    grid-template-rows: 40px 80px 1fr 15px;
+    grid-template-areas: "nav nav nav nav"
+      "lgut title title rgut"
+      "lgut content image rgut"
+      "bgut bgut bgut bgut";
+  }
+
+
+  div.story>img {
+    width: 85%;
+    align-self: flex-start;
+  }
+
+  div.story-content {
+    align-self: flex-start;
+  }
+
+  div.story-title {
+    grid-area: title;
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  div.story>img {
+    margin-top: 60px;
+  }
+
+  div.story>div.story-content {
+    margin-top: 60px;
+  }
+
+
+  div.story-content p {
+    margin: 0;
+  }
+
+  div.cta {
+    margin: 50px 0;
+  }
+}
+
+@media (max-width: 899px) {
+
+  div.story {
+    grid-template-columns: 15px 1fr 15px;
+    grid-template-rows: 30px 60px 1fr 1fr 30px;
+    grid-template-areas: "tgut tgut tgut"
+      "lgut title rgut"
+      "lgut image rgut"
+      "lgut content rgut"
+      "bgut bgut bgut";
+    align-items: center;
+  }
+
+
+  div.story>img {
+    width: 70%;
+    align-self: center;
+  }
+
+  div.story-content {
+    justify-content: center;
+    align-self: flex-start;
+  }
+
+  div.story-content>div {
+    text-align: center;
+  }
+
+  div.story-content>div.info {
+    padding: 30px 100px;
+  }
+
+
+}
+
+@media (max-width: 599px) {
+
+  div.story {
+    min-height: 100vh;
+  }
+
+  div.story>img {
+    width: 100%;
+  }
+
+  div.story-content>div.info {
+    padding: 0px;
+  }
+}

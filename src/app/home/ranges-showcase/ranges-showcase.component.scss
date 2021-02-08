@@ -1,0 +1,182 @@
+div.container {
+  width: 100vw;
+  transition: background-image 0.5s ease-in-out;
+  background-image: url("/assets/ranges/Range1.jpg");
+  background-size: cover;
+  background-position: center;
+
+}
+
+div.content {
+  width: 100vw;
+  grid-area: content;
+  backdrop-filter: blur(0.8px);
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 65%, rgba(255, 255, 255, 0.85) 100%);
+
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr 30px;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: "nav nav nav nav"
+    "lgut carousel info rgut"
+    "bgut bgut bgut bgut";
+  justify-content: center;
+  align-items: center;
+}
+
+div.info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+div.info>* {
+  text-align: left;
+  margin: 15px 0;
+}
+
+div.info p.info-text {
+  margin-right: 80px;
+  font-weight: bold;
+}
+
+
+
+div.carousel {
+  grid-area: carousel;
+  background-color: rgba(255, 255, 255, 0.9);
+  justify-self: center;
+  border-radius: 10px;
+  width: 80%;
+}
+
+
+
+div.carousel-item {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+div.range-title {
+  padding: 10px;
+  margin-top: 25px
+}
+
+div.range-image-container {
+  width: 80%;
+}
+
+img.range-image {
+  margin: 20px 0;
+  border: 5px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px grey;
+}
+
+@media (min-width: 1200px) {}
+
+@media (max-width: 1199px) {
+  div.content {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.75) 35%, rgba(255, 255, 255, 0) 100%);
+
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-rows: 10px 120px auto 80px  3fr  10px;
+    grid-template-areas: "tgut tgut tgut"
+                         "lgut title rgut"
+                         "lgut info rgut"
+                         "lgut cta rgut"
+                         "lgut carousel rgut"
+                         "bgut bgut bgut";
+  }
+
+  div.range-title {
+    margin-top:0;
+  }
+
+  p.info-text {
+    align-self: flex-start;
+    padding: 0 50px
+  }
+
+  div.carousel-item {
+    height: fit-content;
+  }
+
+  div.carousel {
+    width: 40%
+  }
+
+  div.range-image-container {
+    height: 200px;
+  }
+
+  div.range-image-container img {
+    height: 100%;
+    margin: 0;
+    object-fit: contain;
+    width: auto !important;
+  }
+
+  p.title {
+    grid-area: title;
+  }
+
+  p.info-text {
+    grid-area: info;
+  }
+
+  div.cta {
+    grid-area: cta;
+  }
+
+
+}
+
+@media (max-width: 899px) {
+
+
+  div.range-image-container {
+    height: 300px;
+  }
+
+  div.range-image-container img {
+    height: 100%;
+    margin: 0;
+    object-fit: contain;
+    width: auto !important;
+  }
+
+  div.carousel {
+    width: 70%
+  }
+}
+
+@media (max-width: 599px) {
+
+  p.title {
+    padding: 0 20px;
+  }
+
+  p.info-text {
+    padding: 0 20px;
+  }
+
+  div.range-image-container {
+    height: 150px;
+  }
+
+  div.range-image-container img {
+    height: 100%;
+    margin: 0;
+    object-fit: contain;
+    width: auto !important;
+  }
+
+  div.carousel {
+    width: 90%
+  }
+}

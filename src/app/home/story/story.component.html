@@ -1,0 +1,20 @@
+<div appFullscreen class="story fullscreenSection">
+  <img src="/assets/story.jpg" alt="">
+  <div class="story-content">
+    <div *ngIf="screenSize.large"  class="story-title section-heading">Our Story</div>
+    <div class="info info-text">
+      <p>This innovative South African brand has a spirit of adventure and a heart of humour. Launched in 2014 as a
+        daring
+        detour from their graphic design agency, husband and wife team Ryan and Leanne Botha have infused aLoveSupreme
+        with
+        inspired verve and gone from strength to strength with their off-the-wall brand.</p>
+    </div>
+    <div class="cta">
+      <a [routerLink]="['/about']">
+        <button appButton="" [cta]="true" [hoverEffect]="true" [outline]="true" label="Read The Full Story"></button>
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="!screenSize.large" class="story-title section-heading">Our Story</div>
+</div>

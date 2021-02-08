@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CartOverlayComponent } from './cart-overlay/cart-overlay.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

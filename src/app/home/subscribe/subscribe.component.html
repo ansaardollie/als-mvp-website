@@ -1,0 +1,38 @@
+  <form appFullscreen [formGroup]="form">
+  <div class="container" [ngClass]="{fullscreenSection: screenSize.large}" >
+    <hr class="divider">
+    <div class="content">
+      <div class="title">
+        <div class="section-heading">Our Newsletter</div>
+        <div class="small-heading">Subscribe to our newsletter and we’ll keep you updated on new products, news and
+          promotions. <br>You'll also receive a coupon code for discount on your next purchase.</div>
+      </div>
+      <div class="input email-input">
+        <span class="p-float-label">
+          <input formControlName="email" id="email" pInputText type="text" class="">
+          <label for="email">Email Address</label>
+        </span>
+      </div>
+      <div class="input first-name-input">
+        <span class="p-float-label">
+          <input formControlName="firstName"  id="fname" pInputText type="text" class="">
+          <label for="fname">First Name</label>
+        </span>
+      </div>
+      <div class="input last-name-input">
+        <span class="p-float-label">
+          <input formControlName="lastName"  id="lname" pInputText type="text" class="">
+          <label for="lname">Last Name</label>
+        </span>
+      </div>
+      <div class="submit-button">
+        <button appButton [cta]="true" label="Subscribe" (click)="submitClicked()"></button>
+        <div *ngIf="showErrors && form.invalid" class="errors">
+          <p style="margin: 0; color: red;" *ngFor="let message of errorMessages" >{{message}}</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <img src="/assets/footer-image.jpg" class="footer-image">
+  </div>
+</form>

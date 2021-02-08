@@ -18,7 +18,8 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { SkeletonModule } from 'primeng/skeleton';
 
-// import { ButtonDirective } from './button.directive';
+import { ButtonDirective } from './button.directive';
+
 // import { LazyLoadDirective } from './lazy-load.directive';
 
 
@@ -45,13 +46,12 @@ const sharedItems: any[] = [
 
 @NgModule({
   declarations: [
-    // ButtonDirective,
     // LazyLoadDirective,
-  ],
+  ButtonDirective],
   imports: [...sharedItems],
   exports: [
     ...sharedItems,
-    // ButtonDirective,
+    ButtonDirective,
     // LazyLoadDirective
   ],
 })
