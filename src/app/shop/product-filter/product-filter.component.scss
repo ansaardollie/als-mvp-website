@@ -1,0 +1,124 @@
+.container {
+  width: 90%;
+  margin: 5px;
+  background-color: white;
+  /* box-shadow: 2px 2px 5px grey; */
+  border-radius: 5px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  /* gap: 10px; */
+}
+
+.title .subtitle {
+  font-size: 1.4rem;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  text-align: left;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.subfilter {
+  padding: 10px 0 15px 0;
+}
+.subfilter:last-of-type {
+  padding-bottom: 10px;
+}
+
+.clear {
+  font-size: 0.85rem;
+  color: rgb(131, 0, 0);
+  cursor: pointer;
+}
+hr {
+  width: 100%;
+}
+
+div.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.clear:hover {
+  text-decoration: underline;
+}
+
+hr {
+  width: 100%;
+  margin: 0;
+}
+
+p-multiSelect {
+  width: 100%;
+}
+.p-field-checkbox {
+  align-self: flex-start;
+}
+
+::ng-deep p-multiSelect > div {
+  width: 100%;
+  max-width: 100%;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-header {
+  padding: 5px;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+}
+
+::ng-deep .p-multiselect-label-container {
+  height: 30px;
+}
+
+::ng-deep .p-multiselect .p-multiselect-label.p-placeholder {
+  line-height: 30px;
+  height: 30px;
+  padding: 0;
+  padding-left: 5px;
+  text-align: left;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {
+  height: 30px;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+  padding: 7px;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-items .p-multiselect-item  span {
+  font-size: 0.8rem;
+}
+
+::ng-deep .p-multiselect .p-multiselect-label {
+  padding: 0 0 0 10px;
+  line-height: 30px;
+  height: 30px;
+  text-align: left;
+}
+
+::ng-deep div.inputs div.p-inputgroup {
+  height: 40px;
+}
+
+::ng-deep div.inputs span.end-addon {
+  width: 20%;
+  color: black;
+  font-weight: bold;
+}
+
+::ng-deep div.inputs .p-field-checkbox, .p-field-radiobutton {
+  margin-bottom: 0;
+}

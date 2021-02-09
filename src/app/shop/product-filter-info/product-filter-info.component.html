@@ -1,1 +1,45 @@
-<p>product-filter-info works!</p>
+<div *ngIf="(filter$ | async)?.hasFilters" class="container">
+  <div class="filter">Filters</div>
+  <p-chip
+    (onRemove)="removeCategory(catID)"
+    styleClass="custom-chip cat-chip"
+    *ngFor="let catID of filterCategories$ | async"
+    [removable]="true"
+    [label]="'Category: ' + categoryNameByID(catID)"
+  ></p-chip>
+  <p-chip
+    (onRemove)="removeRange(rangeID)"
+    styleClass="custom-chip range-chip"
+    *ngFor="let rangeID of filterRanges$ | async"
+    [removable]="true"
+    [label]="'Range: ' + rangeNameByID(rangeID)"
+  ></p-chip>
+  <p-chip
+    (onRemove)="removeDesign(designID)"
+    styleClass="custom-chip design-chip"
+    *ngFor="let designID of filterDesigns$ | async"
+    [removable]="true"
+    [label]="'Design: ' + designNameByID(designID)"
+  ></p-chip>
+  <p-chip
+    [removable]="true"
+    (onRemove)="removeMinPrice()"
+    styleClass="custom-chip price-chip"
+    *ngIf="minPrice$ | async"
+    [label]="minPriceLabel"
+  ></p-chip>
+  <p-chip
+    [removable]="true"
+    (onRemove)="removeMaxPrice()"
+    styleClass="custom-chip price-chip"
+    *ngIf="maxPrice$ | async"
+    [label]="maxPriceLabel"
+  ></p-chip>
+  <p-chip
+    *ngIf="onSale$ | async"
+    [label]="'On Sale'"
+    styleClass="custom-chip sale-chip"
+    [removable]="true"
+    (onRemove)="removeSale()"
+  ></p-chip>
+</div>

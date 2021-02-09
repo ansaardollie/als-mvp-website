@@ -1,1 +1,140 @@
-<p>product-filter works!</p>
+<div class="container">
+  <div class="title">
+    <div class="subtitle">
+      <div class="description">Filter</div>
+      <div
+        (click)="clearFilter()"
+        *ngIf="currentFilter.hasFilters"
+        class="clear"
+      >
+        Clear All
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="subfilter category-filter">
+    <div class="subtitle">
+      <div class="description">Category</div>
+      <div
+        (click)="clearCategories()"
+        *ngIf="selectedCategories.length > 0"
+        class="clear"
+      >
+        Clear
+      </div>
+    </div>
+    <p-multiSelect
+      [resetFilterOnHide]="true"
+      [showToggleAll]="false"
+      [virtualScroll]="true"
+      [(ngModel)]="selectedCategories"
+      [options]="categories"
+      [optionLabel]="'name'"
+      [optionValue]="'id'"
+      defaultLabel="Select Categories"
+      (onChange)="categoriesChanges()"
+      [maxSelectedLabels]="0"
+    >
+    </p-multiSelect>
+  </div>
+  <hr />
+  <div class="subfilter range-filer">
+    <div class="subtitle">
+      <div class="description">Range</div>
+      <div
+        (click)="clearRanges()"
+        *ngIf="selectedRanges.length > 0"
+        class="clear"
+      >
+        Clear
+      </div>
+    </div>
+    <p-multiSelect
+      [resetFilterOnHide]="true"
+      [showToggleAll]="false"
+      [virtualScroll]="true"
+      [(ngModel)]="selectedRanges"
+      [options]="ranges"
+      [optionLabel]="'name'"
+      (onChange)="rangeChanges()"
+      [optionValue]="'id'"
+      defaultLabel="Select Ranges"
+      [maxSelectedLabels]="0"
+    >
+    </p-multiSelect>
+  </div>
+  <hr />
+  <div class="subfilter design-filter">
+    <div class="subtitle">
+      <div class="description">Design</div>
+      <div
+        (click)="clearDesigns()"
+        *ngIf="selectedDesigns.length > 0"
+        class="clear"
+      >
+        Clear
+      </div>
+    </div>
+    <p-multiSelect
+      [resetFilterOnHide]="true"
+      [showToggleAll]="false"
+      [virtualScroll]="true"
+      [(ngModel)]="selectedDesigns"
+      [options]="designs"
+      [optionLabel]="'name'"
+      (onChange)="designChanges()"
+      [optionValue]="'id'"
+      defaultLabel="Select designs"
+      [maxSelectedLabels]="0"
+    >
+    </p-multiSelect>
+  </div>
+  <hr />
+  <div class="subfilter price-filter">
+    <div class="subtitle">
+      <div class="description">Price</div>
+      <div
+        (click)="clearPrice()"
+        *ngIf="minPrice || maxPrice || onSale"
+        class="clear"
+      >
+        Clear
+      </div>
+    </div>
+    <div class="inputs">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">R</span>
+        <input
+          (change)="minPriceChanges()"
+          [(ngModel)]="minPrice"
+          type="number"
+          pInputText
+          placeholder="Enter Price"
+        />
+        <span class="p-inputgroup-addon end-addon">Min</span>
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">R</span>
+        <input
+          (change)="maxPriceChanges()"
+          [(ngModel)]="maxPrice"
+          type="number"
+          pInputText
+          placeholder="Enter Price"
+        />
+        <span class="p-inputgroup-addon end-addon">Max</span>
+      </div>
+      <div class="p-field-checkbox">
+        <p-checkbox
+          (onChange)="saleChanges()"
+          [(ngModel)]="onSale"
+          [binary]="true"
+          inputId="binary"
+        >
+        </p-checkbox>
+        <label for="binary">On Sale</label>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>

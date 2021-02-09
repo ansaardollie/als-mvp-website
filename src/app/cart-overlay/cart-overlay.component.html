@@ -1,1 +1,5 @@
-<p>cart-overlay works!</p>
+<div class="container">
+    <i class="pi pi-shopping-cart cart-icon"></i>
+    <p class="item-count cart-info">{{currentCart.numItems}} items</p>
+    <p class="cart-total cart-info">{{currentCart.total | currency:'ZAR':'symbol-narrow'}}</p>
+</div>

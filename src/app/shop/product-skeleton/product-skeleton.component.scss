@@ -1,0 +1,34 @@
+div.container {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto auto 30px;
+  grid-gap: 5px;
+  grid-template-areas: "image image " "name1 name1" "name2 name2"  "add info";
+}
+
+.image {
+  grid-area: image;
+}
+
+
+
+.name1 {
+  grid-area: name1;
+}
+
+.name2 {
+  grid-area: name2;
+  margin-bottom: 10px;
+}
+
+.info {
+  grid-area: info;
+}
+
+.add {
+  grid-area: add
+}
+

@@ -1,0 +1,35 @@
+div.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+::ng-deep .custom-chip {
+  height: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+::ng-deep .cat-chip {
+  background-color: rgb(103, 156, 197);
+}
+
+::ng-deep .range-chip {
+  background-color: rgb(228, 146, 217);
+}
+
+::ng-deep .design-chip {
+  background-color: rgb(227, 243, 138);
+}
+
+::ng-deep .price-chip {
+  background-color: rgb(161, 253, 189);
+}
+
+::ng-deep .sale-chip {
+  background-color: rgb(233, 141, 141);
+}

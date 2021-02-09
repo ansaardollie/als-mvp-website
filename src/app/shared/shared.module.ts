@@ -1,4 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
@@ -41,7 +42,8 @@ const sharedItems: any[] = [
   FormsModule,
   ScrollTopModule,
   CheckboxModule,
-  ChipModule
+  ChipModule,
+  HttpClientModule,
 ];
 
 @NgModule({

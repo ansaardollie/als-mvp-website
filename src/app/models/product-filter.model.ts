@@ -12,48 +12,56 @@ export interface IFilter {
 }
 
 export class CategoryFilter implements IFilter {
-
   constructor(public categoryIDs: string[]) {}
 
-
   check(product: Product): boolean {
-    const idsToCheck = product.categories.map(m => m.id);
+    if (this.categoryIDs.length == 0) {
+      return true;
+    } else {
+      const idsToCheck = product.categories.map((m) => m.id);
 
-    for (const id of idsToCheck){
-      if (this.categoryIDs.indexOf(id) >= 0){
-        return true;
+      for (const id of idsToCheck) {
+        if (this.categoryIDs.indexOf(id) >= 0) {
+          return true;
+        }
       }
+      return false;
     }
-    return false;
   }
-
 }
 
 export class RangeFilter implements IFilter {
-
   constructor(public rangeIDs: string[]) {}
 
   check(product: Product): boolean {
-    return this.rangeIDs.indexOf(product.range.id) >= 0;
+    if (this.rangeIDs.length == 0) {
+      return true;
+    } else {
+      return this.rangeIDs.indexOf(product.range.id) >= 0;
+    }
   }
-
 }
 
 export class DesignFilter implements IFilter {
-
   constructor(public designIDs: string[]) {}
 
   check(product: Product): boolean {
-    return this.designIDs.indexOf(product.design.id) >= 0;
+    if (this.designIDs.length == 0) {
+      return true;
+    } else {
+      return this.designIDs.indexOf(product.design.id) >= 0;
+    }
   }
 }
 
 export class PriceFilter implements IFilter {
-
-  constructor(public min?: number, public max?: number, public priceType: PriceType = PriceType.RETAIL){}
+  constructor(
+    public min?: number,
+    public max?: number,
+    public priceType: PriceType = PriceType.RETAIL
+  ) {}
 
   check(product: Product): boolean {
-
     let price: number | undefined;
 
     switch (this.priceType) {
@@ -81,81 +89,80 @@ export class PriceFilter implements IFilter {
       } else if (this.max) {
         return price <= this.max;
       } else {
-        return false;
+        return true;
       }
     }
   }
 }
 
 export class SaleFilter implements IFilter {
+  constructor(public onSale: boolean = false) {}
 
   check(product: Product): boolean {
-    return !!product.priceInfo.sale;
+    const hasSalePrice = !!product.priceInfo.sale;
+    if (this.onSale) {
+      return hasSalePrice;
+    } else {
+      return true;
+    }
   }
-
 }
 
+type filterObject = {
+  categoryFilter: CategoryFilter;
+  rangeFilter: RangeFilter;
+  designFilter: DesignFilter;
+  priceFilter: PriceFilter;
+  saleFilter: SaleFilter;
+};
+
 export class ProductFilter {
-
   get hasFilters() {
-    return this.filters.length > 0;
+    return (
+      this.categoryFilter.categoryIDs.length > 0 ||
+      this.rangeFilter.rangeIDs.length > 0 ||
+      this.designFilter.designIDs.length > 0 ||
+      this.priceFilter.max != undefined ||
+      this.priceFilter.min != undefined ||
+      this.saleFilter.onSale
+    );
   }
 
-  get categoryFilter() {
-    const filter = this.filters.find((f) => f instanceof CategoryFilter);
-    if (filter) {
-      return filter as CategoryFilter;
-    } else {
-      return null;
-    }
+  constructor(
+    public categoryFilter: CategoryFilter,
+    public rangeFilter: RangeFilter,
+    public designFilter: DesignFilter,
+    public priceFilter: PriceFilter,
+    public saleFilter: SaleFilter
+  ) {}
+
+  static fromObject(obj: filterObject): ProductFilter {
+    return new ProductFilter(
+      obj.categoryFilter,
+      obj.rangeFilter,
+      obj.designFilter,
+      obj.priceFilter,
+      obj.saleFilter
+    );
   }
 
-  get designFilter() {
-    const filter = this.filters.find((f) => f instanceof DesignFilter);
-    if (filter) {
-      return filter as DesignFilter;
-    } else {
-      return null;
-    }
+  static noFilter(): ProductFilter {
+    return new ProductFilter(
+      new CategoryFilter([]),
+      new RangeFilter([]),
+      new DesignFilter([]),
+      new PriceFilter(),
+      new SaleFilter()
+    );
   }
-
-  get rangeFilter() {
-    const filter = this.filters.find((f) => f instanceof RangeFilter);
-    if (filter) {
-      return filter as RangeFilter;
-    } else {
-      return null;
-    }
-  }
-
-  get PriceFilter() {
-    const filter = this.filters.find((f) => f instanceof PriceFilter);
-    if (filter) {
-      return filter as PriceFilter;
-    } else {
-      return null;
-    }
-  }
-
-  get SaleFilter() {
-    const filter = this.filters.find((f) => f instanceof SaleFilter);
-    if (filter) {
-      return filter as SaleFilter;
-    } else {
-      return null;
-    }
-  }
-
-
-  constructor(public filters: IFilter[]){}
 
   check(product: Product): boolean {
-    for (const filter of this.filters){
-      if (!filter.check(product)) {
-        return false;
-      }
-    }
-    return true;
+    return (
+      this.categoryFilter.check(product) &&
+      this.rangeFilter.check(product) &&
+      this.designFilter.check(product) &&
+      this.priceFilter.check(product) &&
+      this.saleFilter.check(product)
+    );
   }
-
 }

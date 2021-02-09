@@ -1,15 +1,93 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SubSink } from 'subsink';
+
+import { ProductFilter } from './../../models/product-filter.model';
+import { FilterService } from './../../services/filter.service';
 
 @Component({
   selector: 'app-product-filter-info',
   templateUrl: './product-filter-info.component.html',
-  styleUrls: ['./product-filter-info.component.scss']
+  styleUrls: ['./product-filter-info.component.scss'],
 })
 export class ProductFilterInfoComponent implements OnInit {
+  filter$: Observable<ProductFilter>;
+  filterCategories$: Observable<string[]>;
+  filterRanges$: Observable<string[]>;
+  filterDesigns$: Observable<string[]>;
+  minPrice$: Observable<number | undefined>;
+  minPrice: number | undefined;
+  maxPrice: number | undefined;
+  maxPrice$: Observable<number | undefined>;
+  onSale$: Observable<boolean>;
 
-  constructor() { }
+  subsink = new SubSink();
+  constructor(private fs: FilterService) {
+    this.filter$ = this.fs.productFilter;
+    this.filterCategories$ = this.fs.filterCategoryIDs;
+    this.filterRanges$ = this.fs.filterRangeIDs;
+    this.filterDesigns$ = this.fs.filterDesignIDs;
+    this.minPrice$ = this.fs.filterMinPrice;
+    this.maxPrice$ = this.fs.filterMaxPrice;
+    this.onSale$ = this.fs.filterSale;
 
-  ngOnInit(): void {
+    const maxPriceSub = this.maxPrice$.subscribe((n) => (this.maxPrice = n));
+    const minPriceSub = this.minPrice$.subscribe((n) => (this.minPrice = n));
+
+    this.subsink.add(maxPriceSub, minPriceSub);
   }
 
+  ngOnInit(): void {}
+
+  categoryNameByID(id: string) {
+    return id;
+  }
+
+  rangeNameByID(id: string) {
+    return id;
+  }
+
+  designNameByID(id: string) {
+    return id;
+  }
+
+  get minPriceLabel() {
+    if (this.minPrice == undefined) {
+      return '';
+    } else {
+      return `Min R${this.minPrice.toFixed(2)}`;
+    }
+  }
+
+  get maxPriceLabel() {
+    if (this.maxPrice == undefined) {
+      return '';
+    } else {
+      return `Max R${this.maxPrice.toFixed(2)}`;
+    }
+  }
+
+  removeCategory(id: string) {
+    this.fs.deleteCategory(id);
+  }
+
+  removeRange(id: string) {
+    this.fs.deleteRange(id);
+  }
+
+  removeDesign(id: string) {
+    this.fs.deleteDesign(id);
+  }
+
+  removeMinPrice() {
+    this.fs.removeMinPrice();
+  }
+
+  removeMaxPrice() {
+    this.fs.removeMaxPrice();
+  }
+
+  removeSale() {
+    this.fs.setSaleFilter(false);
+  }
 }

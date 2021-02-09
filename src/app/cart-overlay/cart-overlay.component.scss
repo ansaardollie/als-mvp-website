@@ -1,0 +1,40 @@
+div.container {
+  background-color: black;
+  border-radius: 500px;
+  height: 60px;
+  width: 175px;
+  display: grid;
+  grid-template-columns: 5px 1fr 3fr 5px;
+  grid-template-rows: 5px 1fr 1fr 5px;
+  grid-template-areas: "tgut tgut tgut tgut"
+                       "lgut icon items rgut"
+                       "lgut icon amount rgut"
+                       "bgut bgut bgut bgut";
+
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon {
+  grid-area: icon;
+  color: white;
+  font-size: 1.5em;
+}
+
+.cart-info {
+  margin: 0;
+  padding: 0 0 0 10px;
+  justify-self: start;
+}
+.item-count {
+  grid-area: items;
+  color: white;
+  font-weight: bold;
+
+}
+
+.cart-total {
+  grid-area: amount;
+  color: white;
+  font-weight: bold;
+}

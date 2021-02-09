@@ -1,0 +1,39 @@
+div.container {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-gap: 20px;
+}
+
+div.message-container {
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+div.message {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+hr {
+  width: 100%
+}
+
+.skeleton, .product-card {
+  width: 100%;
+  height: fit-content;
+}
+
+div.load-more {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
