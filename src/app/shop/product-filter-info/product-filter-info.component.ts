@@ -3,7 +3,10 @@ import { Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 
 import { ProductFilter } from './../../models/product-filter.model';
+import { CategoryService } from './../../services/category.service';
+import { DesignService } from './../../services/design.service';
 import { FilterService } from './../../services/filter.service';
+import { RangeService } from './../../services/range.service';
 
 @Component({
   selector: 'app-product-filter-info',
@@ -22,7 +25,12 @@ export class ProductFilterInfoComponent implements OnInit {
   onSale$: Observable<boolean>;
 
   subsink = new SubSink();
-  constructor(private fs: FilterService) {
+  constructor(
+    private fs: FilterService,
+    private cs: CategoryService,
+    private ds: DesignService,
+    private rs: RangeService
+  ) {
     this.filter$ = this.fs.productFilter;
     this.filterCategories$ = this.fs.filterCategoryIDs;
     this.filterRanges$ = this.fs.filterRangeIDs;
@@ -40,15 +48,21 @@ export class ProductFilterInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   categoryNameByID(id: string) {
-    return id;
+    const name = this.cs.getNameByID(id);
+    if (name == '') return id;
+    else return name;
   }
 
   rangeNameByID(id: string) {
-    return id;
+    const name = this.rs.getNameByID(id);
+    if (name == '') return id;
+    else return name;
   }
 
   designNameByID(id: string) {
-    return id;
+    const name = this.ds.getNameByID(id);
+    if (name == '') return id;
+    else return name;
   }
 
   get minPriceLabel() {

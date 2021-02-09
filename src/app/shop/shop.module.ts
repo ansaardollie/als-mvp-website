@@ -10,6 +10,8 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 import { ProductSkeletonComponent } from './product-skeleton/product-skeleton.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ShopComponent } from './shop.component';
+import { CategoryCatalogueComponent } from './category-catalogue/category-catalogue.component';
+import { CategoryCardComponent } from './category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ShopComponent } from './shop.component';
     ProductCatalogueComponent,
     ShopComponent,
     ProductCatalogueInfobarComponent,
+    CategoryCatalogueComponent,
+    CategoryCardComponent,
   ],
   imports: [CommonModule, SharedModule, ShopRoutingModule],
 })

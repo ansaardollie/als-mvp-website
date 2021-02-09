@@ -1,16 +1,16 @@
 .container {
   width: 100vw;
   display: grid;
-  grid-template-columns: 20px 1fr 4fr 20px;
+  grid-template-columns: 20px 1fr 20px;
   grid-template-rows: 80px auto auto;
-  grid-template-areas: "lgut title title rgut"
-                       "lgut filter router rgut"
-                       "lgut filter spacer rgut";
+  grid-template-areas:
+    "lgut title rgut"
+    "lgut router rgut"
+    "lgut spacer rgut";
 
   justify-content: center;
   align-items: center;
 }
-
 
 .title {
   grid-area: title;
@@ -25,20 +25,12 @@ div.spacer {
   width: 100%;
 }
 
-.filter {
-  grid-area: filter;
-  align-self: flex-start;
-  position: sticky;
-  top: 50px;
-  left: 0px;
-}
-
 .router {
   grid-area: router;
   align-self: start;
 }
 
-::ng-deep .p-scrolltop.p-link  {
+::ng-deep .p-scrolltop.p-link {
   top: 10px;
   right: 10px;
 }

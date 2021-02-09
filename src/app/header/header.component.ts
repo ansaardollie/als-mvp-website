@@ -7,10 +7,9 @@ import { LayoutService, ScreenSize } from '../services/layout.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   mainMenuItems: MenuItem[] = [];
 
   menuPosition: any;
@@ -22,13 +21,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   sidebarVisible = false;
   gottenHeight = false;
 
-  @ViewChild('logo', {static: false}) logo!: ElementRef;
-  @ViewChild('stickyNav', {static: false}) nav!: ElementRef;
-  @ViewChild('mobileNav', {static: false}) mobileNav!: ElementRef;
+  @ViewChild('logo', { static: false }) logo!: ElementRef;
+  @ViewChild('stickyNav', { static: false }) nav!: ElementRef;
+  @ViewChild('mobileNav', { static: false }) mobileNav!: ElementRef;
 
-
-
-  constructor(private ss: LayoutService) { }
+  constructor(private ss: LayoutService) {}
   ngOnDestroy(): void {
     this.screenSub.unsubscribe();
   }
@@ -45,19 +42,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   inView(event: IntersectionObserverEntry, element: HTMLElement): void {
-
-    if (!this.sticky && (!this.screenSize.extraSmall)) {
+    if (!this.sticky && !this.screenSize.extraSmall) {
       this.menuPosition = element.offsetTop;
     }
   }
-
 
   ngOnInit(): void {
     this.mainMenuItems = [
       {
         label: 'Home',
         routerLink: '/home',
-        command: this.closeSidebar.bind(this)
+        command: this.closeSidebar.bind(this),
       },
       {
         label: 'Shop',
@@ -67,17 +62,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
             command: this.closeSidebar.bind(this),
           },
           {
-            separator: true
+            separator: true,
           },
           {
             label: 'Shop By Product Type',
+            routerLink: '/shop/categories',
             command: this.closeSidebar.bind(this),
           },
           {
             label: 'Shop By Design Range',
             command: this.closeSidebar.bind(this),
           },
-        ]
+        ],
       },
       {
         label: 'About Us',
@@ -97,16 +93,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       },
     ];
 
-    this.screenSub = this.ss.screenSize$.subscribe(
-      (next) => {
-        this.screenSize = next;
-      }
-    );
-
+    this.screenSub = this.ss.screenSize$.subscribe((next) => {
+      this.screenSize = next;
+    });
   }
 
-  closeSidebar(): void{
+  closeSidebar(): void {
     this.sidebarVisible = false;
   }
-
 }

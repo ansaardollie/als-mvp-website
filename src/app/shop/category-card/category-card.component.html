@@ -1,0 +1,16 @@
+<a [routerLink]="['/shop', 'categories', category.id]"
+  ><div class="container">
+    <div class="image">
+      <p-skeleton width="100%" height="380px" *ngIf="loadingImage"></p-skeleton>
+      <img
+        (load)="onLoadImage()"
+        [src]="imageURL"
+        [ngClass]="{ loading: loadingImage }"
+        alt=""
+      />
+    </div>
+    <div class="name">
+      <p>{{ category.alias || category.name }}</p>
+    </div>
+  </div>
+</a>

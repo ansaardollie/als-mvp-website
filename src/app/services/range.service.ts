@@ -54,4 +54,13 @@ export class RangeService {
   private productBelongsToRange(product: Product, range: RangeInfo) {
     return product.range.id == range.id;
   }
+
+  getNameByID(id: string) {
+    const element = this.rangeMasterList.find((c) => c.id == id);
+    if (!!element) {
+      return element.name;
+    } else {
+      return '';
+    }
+  }
 }

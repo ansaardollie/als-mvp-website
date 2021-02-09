@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 import { PriceFilter, PriceType, ProductFilter } from '../models/product-filter.model';
@@ -53,7 +54,7 @@ export class FilterService {
     return this.filterSale$.asObservable();
   }
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   addCategory(id: string) {
     this.categoryIDs.push(id);

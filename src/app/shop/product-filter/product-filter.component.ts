@@ -39,7 +39,7 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
     private fs: FilterService,
     private cs: CategoryService,
     private rs: RangeService,
-    private ds: DesignService,
+    private ds: DesignService
   ) {
     this.categories$ = this.cs.categories;
     this.ranges$ = this.rs.ranges;
@@ -75,7 +75,6 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
       saleSub
     );
   }
-
 
   ngOnInit(): void {}
 

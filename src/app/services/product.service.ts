@@ -49,6 +49,7 @@ export class ProductService implements OnDestroy {
     this.filterSub = this.fs.productFilter.subscribe((filter) => {
       this.pageSize = 72;
       this.productFilter = filter;
+      console.log('Filter emitted', this.productFilteredList);
       this.pushProducts();
     }, this.handleNewFilterError);
   }
@@ -67,7 +68,11 @@ export class ProductService implements OnDestroy {
           .sort(this.defaultProductSort);
         this.isLoadingProducts$.next(false);
         this.productMasterList$.next(this.productMasterList);
-        this.handleNewFilter(ProductFilter.noFilter());
+        if (this.productFilter.hasFilters) {
+          this.handleNewFilter(this.productFilter);
+        } else {
+          this.handleNewFilter(ProductFilter.noFilter());
+        }
       });
   }
 
@@ -94,6 +99,7 @@ export class ProductService implements OnDestroy {
       this.productFilteredList = this.productMasterList.filter((p) =>
         this.productFilter.check(p)
       );
+      console.log('Master filtered list', this.productFilteredList);
     } else {
       this.productFilteredList = this.productMasterList.slice();
     }

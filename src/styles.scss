@@ -1,16 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 @font-face {
-  font-family: 'Casta Black';
-  src: url('/assets/fonts/Casta-Black.otf');
+  font-family: "Casta Black";
+  src: url("/assets/fonts/Casta-Black.otf");
+}
+
+@font-face {
+  font-family: "Baskerville Light";
+  src: url("/assets/fonts/Baskerville-Light.ttf");
 }
 
 html * {
   max-width: 100vw !important;
 }
-
 
 body {
   width: 100vw !important;
@@ -54,7 +58,6 @@ a:hover {
   font-style: italic;
 }
 
-
 .my-button {
   background-color: black;
   outline: none;
@@ -69,7 +72,7 @@ a:hover {
 
 .my-button span {
   color: white;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 1rem;
 }
 
@@ -86,12 +89,11 @@ a:hover {
 }
 
 .my-button.outline-button.cta {
-
   min-width: 250px;
   min-height: 60px;
 }
 
-.my-button.outline-button>span {
+.my-button.outline-button > span {
   color: black;
 }
 
@@ -101,7 +103,7 @@ a:hover {
   padding: 0px;
 }
 
-.my-button.mini-button>span {
+.my-button.mini-button > span {
   font-size: 0.9rem;
 }
 
@@ -111,8 +113,8 @@ a:hover {
   border-color: red !important;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -122,17 +124,15 @@ input[type=number]::-webkit-outer-spin-button {
   text-transform: uppercase;
 }
 
-
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
   html {
     font-size: 16px;
   }
   .fullscreenSection {
     min-height: calc(100vh - 48px);
   }
-
 }
-@media (max-width: 1199px){
+@media (max-width: 1199px) {
   html {
     font-size: 12px;
   }
@@ -140,7 +140,6 @@ input[type=number]::-webkit-outer-spin-button {
     min-height: calc(100vh - 39px);
   }
 
-
   .section-heading {
     font-size: 4rem;
   }
@@ -149,7 +148,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.6rem;
   }
 }
-@media (max-width: 899px){
+@media (max-width: 899px) {
   html {
     font-size: 12px;
   }
@@ -162,7 +161,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.6rem;
   }
 }
-@media (max-width: 599px){
+@media (max-width: 599px) {
   html {
     font-size: 10px;
   }
@@ -178,6 +177,4 @@ input[type=number]::-webkit-outer-spin-button {
   .info-text {
     font-size: 1.3rem;
   }
-
 }
-

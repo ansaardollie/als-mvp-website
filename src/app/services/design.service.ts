@@ -54,4 +54,13 @@ export class DesignService {
   private productBelongsToDesign(product: Product, design: DesignInfo) {
     return product.design.id == design.id;
   }
+
+  getNameByID(id: string) {
+    const element = this.designMasterList.find((c) => c.id == id);
+    if (!!element) {
+      return element.name;
+    } else {
+      return '';
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { map, skipWhile } from 'rxjs/operators';
 
 import { CategoryInfo, Product } from './../models/product.model';
 import { ProductService } from './product.service';
@@ -55,4 +56,30 @@ export class CategoryService implements OnDestroy {
     const index = product.categories.findIndex((c) => c.id == catID);
     return index >= 0;
   }
+
+  childCategories(id: string): Observable<CategoryInfo[]> {
+    return this.categories.pipe(
+      skipWhile((next) => next.length == 0),
+      map((next) => {
+        let cats: CategoryInfo[];
+        if (id == 'root') {
+          cats = next.filter((c) => c.parentID === undefined);
+        } else {
+          cats = next.filter((c) => c.parentID === id);
+        }
+        console.log('Inside childCategories() call');
+        console.log(cats);
+        return cats;
+      })
+    );
+  }
+
+  getNameByID(id: string) {
+    const element = this.categoryMasterList.find(c => c.id == id);
+   if (!!element) {
+      return element.name;
+    } else {
+      return '';
+    }
+  } 
 }
