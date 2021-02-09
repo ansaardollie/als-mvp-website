@@ -1,9 +1,29 @@
 div.container {
+  display: grid;
+  width: 100vw;
+  background-color: white;
+  grid-template-columns: 20px 1fr 4fr 20px;
+  grid-template-rows: 80px auto auto;
+  grid-template-areas:
+    "lgut title title rgut"
+    "lgut filter content rgut"
+    "lgut filter content rgut";
+}
+
+div.filter {
+  grid-area: filter;
+}
+
+div.content {
+  grid-area: content;
+}
+
+div.subcontainer {
   width: 100%;
   padding: 10px;
   background-color: white;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(min-content, max-content);
   grid-gap: 20px;
 }
@@ -22,10 +42,11 @@ div.message {
 }
 
 hr {
-  width: 100%
+  width: 100%;
 }
 
-.skeleton, .product-card {
+.skeleton,
+.product-card {
   width: 100%;
   height: fit-content;
 }
