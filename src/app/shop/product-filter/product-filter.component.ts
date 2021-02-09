@@ -1,10 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 
 import { ProductFilter } from './../../models/product-filter.model';
 import { CategoryInfo, DesignInfo, RangeInfo } from './../../models/product.model';
+import { CategoryService } from './../../services/category.service';
+import { DesignService } from './../../services/design.service';
 import { FilterService } from './../../services/filter.service';
+import { RangeService } from './../../services/range.service';
 
 @Component({
   selector: 'app-product-filter',
@@ -20,9 +24,9 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   maxPrice: number | undefined;
   onSale: boolean = false;
 
-  categories: CategoryInfo[] = [];
-  ranges: RangeInfo[] = [];
-  designs: any[] = [];
+  categories$: Observable<CategoryInfo[]>;
+  ranges$: Observable<RangeInfo[]>;
+  designs$: Observable<DesignInfo[]>;
 
   subsink: SubSink = new SubSink();
 
@@ -30,7 +34,16 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
     return a.name.localeCompare(b.name);
   }
 
-  constructor(private http: HttpClient, private fs: FilterService) {
+  constructor(
+    private http: HttpClient,
+    private fs: FilterService,
+    private cs: CategoryService,
+    private rs: RangeService,
+    private ds: DesignService,
+  ) {
+    this.categories$ = this.cs.categories;
+    this.ranges$ = this.rs.ranges;
+    this.designs$ = this.ds.designs;
     const filterSub = this.fs.productFilter.subscribe(
       (n) => (this.currentFilter = n)
     );
@@ -61,26 +74,8 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
       maxPriceSub,
       saleSub
     );
-    this.loadMockData();
   }
 
-  loadMockData(): void {
-    this.http
-      .get<CategoryInfo[]>('http://localhost:3000/categories')
-      .subscribe((categories) => {
-        this.categories = categories.sort(this.defaultNameSort);
-      });
-    this.http
-      .get<RangeInfo[]>('http://localhost:3000/ranges')
-      .subscribe((ranges) => {
-        this.ranges = ranges.sort(this.defaultNameSort);
-      });
-    this.http
-      .get<DesignInfo[]>('http://localhost:3000/designs')
-      .subscribe((designs) => {
-        this.designs = designs.sort(this.defaultNameSort);
-      });
-  }
 
   ngOnInit(): void {}
 

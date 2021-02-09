@@ -17,6 +17,9 @@ export class ProductService implements OnDestroy {
   private filterSub: Subscription;
 
   private isLoadingProducts$ = new BehaviorSubject<boolean>(false);
+  private productMasterList$ = new BehaviorSubject<Product[]>(
+    this.productMasterList
+  );
   private products$ = new BehaviorSubject<Product[]>(this.productMasterList);
   private canLoadMoreProducts$ = new BehaviorSubject<boolean>(false);
   private productQuantity$ = new BehaviorSubject<number>(0);
@@ -31,6 +34,10 @@ export class ProductService implements OnDestroy {
 
   get products() {
     return this.products$.asObservable();
+  }
+
+  get masterProducts() {
+    return this.productMasterList$.asObservable();
   }
 
   get productQuantity() {
@@ -58,8 +65,8 @@ export class ProductService implements OnDestroy {
         this.productMasterList = response
           .filter((p) => p.active)
           .sort(this.defaultProductSort);
-        console.log('Num of products in ml', this.productMasterList.length);
         this.isLoadingProducts$.next(false);
+        this.productMasterList$.next(this.productMasterList);
         this.handleNewFilter(ProductFilter.noFilter());
       });
   }
