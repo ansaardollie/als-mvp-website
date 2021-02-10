@@ -1,0 +1,7 @@
+<div class="container">
+  <app-range-design-catalogue
+    *ngFor="let rangeID of rangesWithPhotos"
+    [rangeID]="rangeID"
+    [designIDs]="designsFromRange(rangeID)"
+  ></app-range-design-catalogue>
+</div>

@@ -71,6 +71,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           },
           {
             label: 'Shop By Design Range',
+            routerLink: '/shop/ranges',
             command: this.closeSidebar.bind(this),
           },
         ],

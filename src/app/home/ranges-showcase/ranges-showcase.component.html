@@ -4,9 +4,14 @@
       <p-carousel (onPage)="scroll($event)" [value]="ranges">
         <ng-template let-range pTemplate="item">
           <div class="carousel-item">
-            <div class="range-title small-heading">{{range.name}}</div>
+            <div class="range-title small-heading">{{ range.name }}</div>
             <div class="range-image-container">
-              <img  style="width: 100%;" [src]="range.imageUrl" alt="" class="range-image">
+              <img
+                style="width: 100%"
+                [src]="range.imageUrl"
+                alt=""
+                class="range-image"
+              />
             </div>
           </div>
         </ng-template>
@@ -14,25 +19,44 @@
     </div>
     <div *ngIf="screenSize.large" class="info">
       <p class="title section-heading">Our Design Ranges</p>
-      <p class="info-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptas laudantium quibusdam
-        voluptate perspiciatis hic eum at eius voluptatum ipsa, delectus harum aut tenetur, optio ratione accusantium
-        repudiandae quisquam fugiat. Esse est mollitia adipisci ratione velit maxime ex officia non quia repellat
-        minima, inventore cupiditate, assumenda fugit aspernatur, officiis vel!</p>
+      <p class="info-text">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptas
+        laudantium quibusdam voluptate perspiciatis hic eum at eius voluptatum
+        ipsa, delectus harum aut tenetur, optio ratione accusantium repudiandae
+        quisquam fugiat. Esse est mollitia adipisci ratione velit maxime ex
+        officia non quia repellat minima, inventore cupiditate, assumenda fugit
+        aspernatur, officiis vel!
+      </p>
       <div class="cta">
-        <a href="" class="">
-          <button appButton [cta]="true" label="Shop By Range" [hoverEffect]="true"></button>
+        <a [routerLink]="['/shop', 'ranges']">
+          <button
+            appButton
+            [cta]="true"
+            label="Shop By Range"
+            [hoverEffect]="true"
+          ></button>
         </a>
       </div>
     </div>
-    <p *ngIf="!screenSize.large" class="title section-heading">Our Design Ranges</p>
-    <p *ngIf="!screenSize.large" class="info-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi
-      voluptas laudantium quibusdam
-      voluptate perspiciatis hic eum at eius voluptatum ipsa, delectus harum aut tenetur, optio ratione accusantium
-      repudiandae quisquam fugiat. Esse est mollitia adipisci ratione velit maxime ex officia non quia repellat
-      minima, inventore cupiditate, assumenda fugit aspernatur, officiis vel!</p>
+    <p *ngIf="!screenSize.large" class="title section-heading">
+      Our Design Ranges
+    </p>
+    <p *ngIf="!screenSize.large" class="info-text">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptas
+      laudantium quibusdam voluptate perspiciatis hic eum at eius voluptatum
+      ipsa, delectus harum aut tenetur, optio ratione accusantium repudiandae
+      quisquam fugiat. Esse est mollitia adipisci ratione velit maxime ex
+      officia non quia repellat minima, inventore cupiditate, assumenda fugit
+      aspernatur, officiis vel!
+    </p>
     <div *ngIf="!screenSize.large" class="cta">
       <a href="" class="">
-        <button appButton [cta]="true" label="Shop By Range" [hoverEffect]="true"></button>
+        <button
+          appButton
+          [cta]="true"
+          label="Shop By Range"
+          [hoverEffect]="true"
+        ></button>
       </a>
     </div>
   </div>

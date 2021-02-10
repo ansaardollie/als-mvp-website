@@ -15,14 +15,15 @@ div.header {
 
 div.header img {
   width: 400px;
-}::ng-deep div#navbar span.p-menuitem-text {
+}
+::ng-deep div#navbar span.p-menuitem-text {
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .sticky {
   position: sticky;
-  background-color:rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
   width: 100%;
   top: 0;
   left: 0;
@@ -34,20 +35,18 @@ div.header img {
 
 @keyframes animateStickyHeader {
   from {
-    background-color: rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
   }
   to {
-    background-color: rgba(255,255,255,1);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
-
 
 /* .sticky + .spacer {
   padding-top: 80px;
 } */
 
-@media (max-width: 599px){
-
+@media (max-width: 599px) {
   div.header {
     display: grid;
     grid-template-columns: 1fr 3.5fr 1fr;
@@ -55,7 +54,6 @@ div.header img {
     padding: 0;
     height: 80px;
   }
-
 
   div.header > * {
     height: 40px;
@@ -68,11 +66,10 @@ div.header img {
   }
 
   div.brand {
-    font-family: 'Casta Black';
+    font-family: "Casta Black";
     font-size: 3.5rem;
     text-align: center;
     width: 100%;
-
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -91,14 +88,11 @@ div.header img {
   }
 }
 
-@media (min-width: 600px) and (max-width: 899px){
-
+@media (min-width: 600px) and (max-width: 899px) {
 }
 
-@media (min-width: 900px) and (max-width: 1199px){
-
+@media (min-width: 900px) and (max-width: 1199px) {
 }
 
-@media (min-width: 1200px){
-
+@media (min-width: 1200px) {
 }

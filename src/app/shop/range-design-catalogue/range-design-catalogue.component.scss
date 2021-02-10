@@ -1,0 +1,39 @@
+div.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 90px;
+  grid-auto-rows: min-content;
+  grid-template-areas: "name name name view view";
+  align-items: flex-end;
+  gap: 20px;
+}
+
+div.name {
+  grid-area: name;
+  text-align: left;
+  font-size: 2.4rem;
+  font-family: "Baskerville Light";
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+a.view-all {
+  grid-area: view;
+}
+div.view {
+  text-align: right;
+  color: black;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+div.view:hover {
+  text-decoration: underline;
+}
+
+div.design-card {
+  width: 100%;
+}
