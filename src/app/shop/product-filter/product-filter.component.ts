@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { ViewportScroller } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 
@@ -35,18 +36,20 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   }
 
   constructor(
-    private http: HttpClient,
+    private router: Router,
     private fs: FilterService,
     private cs: CategoryService,
     private rs: RangeService,
-    private ds: DesignService
+    private ds: DesignService,
+    private scroller: ViewportScroller
   ) {
     this.categories$ = this.cs.categories;
     this.ranges$ = this.rs.ranges;
     this.designs$ = this.ds.designs;
-    const filterSub = this.fs.productFilter.subscribe(
-      (n) => (this.currentFilter = n)
-    );
+    const filterSub = this.fs.productFilter.subscribe((n) => {
+      this.currentFilter = n;
+      this.scroller.scrollToPosition([0, 0]);
+    });
     const catSub = this.fs.filterCategoryIDs.subscribe(
       (n) => (this.selectedCategories = n)
     );
@@ -82,49 +85,76 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
     this.subsink.unsubscribe();
   }
 
-  categoriesChanges(): void {
-    this.fs.addCategories(this.selectedCategories);
-  }
+  filter() {
+    let categories = undefined;
+    let ranges = undefined;
+    let designs = undefined;
+    let min = undefined;
+    let max = undefined;
+    let sale = undefined;
 
-  rangeChanges(): void {
-    this.fs.addRanges(this.selectedRanges);
-  }
+    if (this.selectedCategories.length > 0) {
+      categories = this.selectedCategories.join(',');
+    }
+    if (this.selectedRanges.length > 0) {
+      ranges = this.selectedRanges.join(',');
+    }
+    if (this.selectedDesigns.length > 0) {
+      designs = this.selectedDesigns.join(',');
+    }
+    if (this.minPrice) {
+      min = this.minPrice.toString();
+    }
+    if (this.maxPrice) {
+      max = this.maxPrice.toString();
+    }
+    if (this.onSale) {
+      sale = 'true';
+    }
 
-  designChanges(): void {
-    this.fs.addDesigns(this.selectedDesigns);
-  }
-
-  minPriceChanges(): void {
-    this.fs.addMinPrice(this.minPrice);
-  }
-
-  maxPriceChanges(): void {
-    this.fs.addMaxPrice(this.maxPrice);
-  }
-
-  saleChanges(): void {
-    this.fs.setSaleFilter(this.onSale);
+    this.router.navigate([], {
+      queryParams: {
+        category: categories,
+        range: ranges,
+        design: designs,
+        min: min,
+        max: max,
+        sale: sale,
+      },
+      replaceUrl: false,
+      queryParamsHandling: 'merge',
+    });
   }
 
   clearFilter(): void {
-    this.fs.clearFilter();
+    this.selectedCategories = [];
+    this.selectedDesigns = [];
+    this.selectedRanges = [];
+    this.minPrice = undefined;
+    this.maxPrice = undefined;
+    this.onSale = false;
+    this.filter();
   }
 
   clearCategories(): void {
-    this.fs.clearCategories();
+    this.selectedCategories = [];
+    this.filter();
   }
 
   clearDesigns(): void {
-    this.fs.clearDesigns();
+    this.selectedDesigns = [];
+    this.filter();
   }
 
   clearRanges(): void {
-    this.fs.clearRanges();
+    this.selectedRanges = [];
+    this.filter();
   }
 
   clearPrice(): void {
-    this.fs.removeMaxPrice();
-    this.fs.removeMinPrice();
-    this.fs.setSaleFilter(false);
+    this.minPrice = undefined;
+    this.maxPrice = undefined;
+    this.onSale = false;
+    this.filter();
   }
 }

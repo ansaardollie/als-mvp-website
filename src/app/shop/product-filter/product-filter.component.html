@@ -32,7 +32,7 @@
       [optionLabel]="'name'"
       [optionValue]="'id'"
       defaultLabel="Select Categories"
-      (onChange)="categoriesChanges()"
+      (onChange)="filter()"
       [maxSelectedLabels]="0"
     >
     </p-multiSelect>
@@ -56,7 +56,7 @@
       [(ngModel)]="selectedRanges"
       [options]="(ranges$ | async) || []"
       [optionLabel]="'name'"
-      (onChange)="rangeChanges()"
+      (onChange)="filter()"
       [optionValue]="'id'"
       defaultLabel="Select Ranges"
       [maxSelectedLabels]="0"
@@ -82,7 +82,7 @@
       [(ngModel)]="selectedDesigns"
       [options]="(designs$ | async) || []"
       [optionLabel]="'name'"
-      (onChange)="designChanges()"
+      (onChange)="filter()"
       [optionValue]="'id'"
       defaultLabel="Select designs"
       [maxSelectedLabels]="0"
@@ -105,7 +105,7 @@
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">R</span>
         <input
-          (change)="minPriceChanges()"
+          (change)="filter()"
           [(ngModel)]="minPrice"
           type="number"
           pInputText
@@ -116,7 +116,7 @@
       <div class="p-inputgroup">
         <span class="p-inputgroup-addon">R</span>
         <input
-          (change)="maxPriceChanges()"
+          (change)="filter()"
           [(ngModel)]="maxPrice"
           type="number"
           pInputText
@@ -126,7 +126,7 @@
       </div>
       <div class="p-field-checkbox">
         <p-checkbox
-          (onChange)="saleChanges()"
+          (onChange)="filter()"
           [(ngModel)]="onSale"
           [binary]="true"
           inputId="binary"

@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { ProductService } from './../../services/product.service';
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.scss'],
 })
-export class ProductPageComponent implements OnInit {
+export class ProductPageComponent implements OnInit, AfterViewInit {
   isLoadingProduct$ = new BehaviorSubject<boolean>(true);
   product!: Product;
   quantity: number = 1;
@@ -24,7 +24,6 @@ export class ProductPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.scroller.scrollToAnchor('navbar');
     this.prodSub = this.route.params
       .pipe(
         switchMap((params) => {
@@ -38,6 +37,8 @@ export class ProductPageComponent implements OnInit {
         this.isLoadingProduct$.next(false);
       });
   }
+
+  ngAfterViewInit() {}
 
   get price() {
     return this.product.priceInfo.retail.inclVAT;

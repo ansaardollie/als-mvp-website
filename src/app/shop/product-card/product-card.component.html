@@ -1,6 +1,8 @@
 <div class="container">
   <div class="image">
-    <img appLazyLoad class="product-image" [src]="imageURL" />
+    <a [routerLink]="[product.id]"
+      ><img appLazyLoad class="product-image" [src]="imageURL"
+    /></a>
   </div>
   <div class="name">
     <div class="type">{{ product.type.name }}</div>
