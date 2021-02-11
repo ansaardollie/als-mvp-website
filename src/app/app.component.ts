@@ -17,10 +17,9 @@ export class AppComponent {
   ngOnInit(): void {
     this.router.events.subscribe((nextEvent) => {
       if (nextEvent instanceof NavigationEnd) {
-        this.onHomePage = nextEvent.url == '/' || nextEvent.url == '/home';
-        const onShopPage =
-          nextEvent.url.indexOf('products') >= 0 &&
-          nextEvent.url.indexOf('products/') < 0;
+        const url = nextEvent.url;
+        this.onHomePage = url == '/' || url == '/home';
+        const onShopPage = url.indexOf('products') >= 0;
         this.showCart = onShopPage;
       }
     });
