@@ -6,6 +6,7 @@ import { DesignResolverService } from '../services/guards/design-resolver.servic
 import { RangeResolverService } from './../services/guards/range-resolver.service';
 import { CategoryCatalogueComponent } from './category-catalogue/category-catalogue.component';
 import { ProductCatalogueComponent } from './product-catalogue/product-catalogue.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 import { RangeCatalogueComponent } from './range-catalogue/range-catalogue.component';
 import { ShopComponent } from './shop.component';
 
@@ -17,6 +18,10 @@ const routes: Route[] = [
       {
         path: 'products',
         component: ProductCatalogueComponent,
+      },
+      {
+        path: 'products/:id',
+        component: ProductPageComponent,
       },
       {
         path: 'categories',

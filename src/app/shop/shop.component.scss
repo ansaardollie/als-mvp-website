@@ -2,9 +2,8 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 20px 1fr 20px;
-  grid-template-rows: 80px auto auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    "lgut title rgut"
     "lgut router rgut"
     "lgut spacer rgut";
 

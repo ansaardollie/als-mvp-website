@@ -46,12 +46,10 @@ export class ProductService implements OnDestroy {
 
   constructor(private http: HttpClient, private fs: FilterService) {
     this.loadMasterProductList();
-    this.filterSub = this.fs.productFilter.subscribe((filter) => {
-      this.pageSize = 72;
-      this.productFilter = filter;
-      console.log('Filter emitted', this.productFilteredList);
-      this.pushProducts();
-    }, this.handleNewFilterError);
+    this.filterSub = this.fs.productFilter.subscribe(
+      (filter) => this.handleNewFilter(filter),
+      this.handleNewFilterError
+    );
   }
 
   ngOnDestroy(): void {

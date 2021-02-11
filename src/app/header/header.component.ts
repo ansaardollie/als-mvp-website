@@ -59,13 +59,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
         items: [
           {
             label: 'Shop All Products',
+            routerLink: '/shop/products',
+            queryParamsHandling: 'merge',
+            queryParams: {
+              design: null,
+              category: null,
+              range: null,
+              sale: null,
+              min: null,
+              max: null,
+            },
             command: this.closeSidebar.bind(this),
           },
           {
             separator: true,
           },
           {
-            label: 'Shop By Product Type',
+            label: 'Shop By Category',
             routerLink: '/shop/categories',
             command: this.closeSidebar.bind(this),
           },

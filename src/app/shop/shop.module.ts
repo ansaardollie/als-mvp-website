@@ -15,6 +15,7 @@ import { CategoryCardComponent } from './category-card/category-card.component';
 import { RangeCatalogueComponent } from './range-catalogue/range-catalogue.component';
 import { RangeDesignCatalogueComponent } from './range-design-catalogue/range-design-catalogue.component';
 import { DesignCardComponent } from './design-card/design-card.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DesignCardComponent } from './design-card/design-card.component';
     RangeCatalogueComponent,
     RangeDesignCatalogueComponent,
     DesignCardComponent,
+    ProductPageComponent,
   ],
   imports: [CommonModule, SharedModule, ShopRoutingModule],
 })
