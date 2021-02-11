@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { map, skipWhile } from 'rxjs/operators';
 
 import { ProductFilter } from './../models/product-filter.model';
 import { Product } from './../models/product.model';
@@ -126,5 +127,19 @@ export class ProductService implements OnDestroy {
 
   private handleNewFilterError(error: any): void {
     console.error(error);
+  }
+
+  getProduct(id: string) {
+    return this.productMasterList$.pipe(
+      skipWhile((pml) => pml.length == 0),
+      map((pml) => {
+        const prod = pml.find((p) => p.id == id);
+        if (!prod) {
+          throw new Error('Product ID is invalid');
+        } else {
+          return prod;
+        }
+      })
+    );
   }
 }

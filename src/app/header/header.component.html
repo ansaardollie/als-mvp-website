@@ -1,22 +1,36 @@
+<!-- Mobile Logo -->
 <div *ngIf="!screenSize.extraSmall" class="header" #logo>
-    <img src="./assets/logo1.png" alt="" class="logo">
+  <img src="./assets/logo1.png" alt="" class="logo" />
 </div>
 
-<div *ngIf="!screenSize.extraSmall" (nguiInview)="inView($event, stickyNav)" [observerOptions]="{threshold:[0]}"
-    id="navbar" #stickyNav class="p-grid p-jc-center nav" [ngClass]="{sticky: sticky}">
-    <p-menubar id="navMenu" [model]="mainMenuItems" class="p-d-flex "></p-menubar>
-</div>
-
+<!-- Mobile NavBar -->
 <div #mobileNav *ngIf="screenSize.extraSmall" class="header mobile-header">
-    <div class="logo"></div>
-    <div class="brand">aLoveSupreme</div>
-    <div (click)="sidebarVisible = true" class="hamburger">
-        <i class="pi pi-bars"></i>
-    </div>
+  <div class="logo"></div>
+  <div class="brand">aLoveSupreme</div>
+  <div (click)="sidebarVisible = true" class="hamburger">
+    <i class="pi pi-bars"></i>
+  </div>
 </div>
 
+<!-- Mobile -->
 <p-sidebar [(visible)]="sidebarVisible" position="right">
-    <p class="small-heading">Navigate</p>
-    <hr class="">
-    <p-panelMenu [model]="mainMenuItems" [style]="{'width':'100%'}"></p-panelMenu>
+  <p class="small-heading">Navigate</p>
+  <hr class="" />
+  <p-panelMenu
+    [model]="mainMenuItems"
+    [style]="{ width: '100%' }"
+  ></p-panelMenu>
 </p-sidebar>
+
+<!-- Normal Navbar -->
+<div
+  *ngIf="!screenSize.extraSmall"
+  (nguiInview)="inView($event, stickyNav)"
+  [observerOptions]="{ threshold: [0] }"
+  id="navbar"
+  #stickyNav
+  class="p-grid p-jc-center nav"
+  [ngClass]="{ sticky: sticky }"
+>
+  <p-menubar id="navMenu" [model]="mainMenuItems" class="p-d-flex"></p-menubar>
+</div>

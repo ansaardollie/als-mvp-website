@@ -1,0 +1,71 @@
+div.container {
+  width: 100vw;
+  height: 400vh;
+}
+
+div.above-fold {
+  min-height: calc(100vh - 47px);
+  padding: 40px 120px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 100px 50px 80px 200px auto;
+  grid-template-areas: "gallery name" "gallery price" "gallery cta" "gallery description" "gallery spacer";
+  justify-content: center;
+  align-items: center;
+}
+div * {
+  text-align: left;
+}
+
+div.name {
+  grid-area: name;
+}
+div.name p {
+  margin: 0;
+  padding: 0;
+}
+p.type {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Baskerville Light";
+  text-transform: uppercase;
+}
+
+div.price {
+  font-size: 1.4rem;
+}
+
+p.design {
+  font-size: 1.8rem;
+  font-style: italic;
+  font-family: "Baskerville Light";
+}
+
+div.price {
+  grid-area: price;
+}
+
+div.cta {
+  grid-area: cta;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div.cta button {
+  text-align: center;
+}
+
+::ng-deep div.cta input.p-inputnumber-input {
+  width: 80px;
+}
+
+::ng-deep div.cta button.p-inputnumber-button {
+  background-color: black;
+}
+
+div.description {
+  grid-area: description;
+}

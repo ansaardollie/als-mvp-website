@@ -1,1 +1,26 @@
-<p>product-page works!</p>
+<div class="container">
+  <div *ngIf="!(isLoadingProduct$ | async)" class="above-fold">
+    <div class="name">
+      <p class="type">{{ product.type.name }}</p>
+      <p class="design">{{ product.design.name }}</p>
+    </div>
+    <div class="price">
+      {{ price | currency: "ZAR":"symbol-narrow" }}
+    </div>
+    <div class="cta">
+      <p-inputNumber
+        [min]="1"
+        [max]="100"
+        [(ngModel)]="quantity"
+        [showButtons]="true"
+        buttonLayout="horizontal"
+        spinnerMode="horizontal"
+        decrementButtonClass="p-button-danger"
+        incrementButtonClass="p-button-success"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+      ></p-inputNumber>
+      <button appButton [cta]="true" label="Add to cart"></button>
+    </div>
+  </div>
+</div>

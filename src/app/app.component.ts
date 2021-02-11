@@ -18,7 +18,9 @@ export class AppComponent {
     this.router.events.subscribe((nextEvent) => {
       if (nextEvent instanceof NavigationEnd) {
         this.onHomePage = nextEvent.url == '/' || nextEvent.url == '/home';
-        const onShopPage = nextEvent.url.indexOf('product') >= 0;
+        const onShopPage =
+          nextEvent.url.indexOf('products') >= 0 &&
+          nextEvent.url.indexOf('products/') < 0;
         this.showCart = onShopPage;
       }
     });

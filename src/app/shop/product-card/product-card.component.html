@@ -1,22 +1,30 @@
 <div class="container">
-    <div class="image">
-        <img appLazyLoad class="product-image" [src]="imageURL">
+  <div class="image">
+    <img appLazyLoad class="product-image" [src]="imageURL" />
+  </div>
+  <div class="name">
+    <div class="type">{{ product.type.name }}</div>
+    <div class="design">{{ product.design.name }}</div>
+  </div>
+  <div class="price">
+    <div [ngClass]="{ hasSalePrice: !!product.priceInfo.sale }" class="retail">
+      {{ price | currency: "ZAR":"symbol-narrow":"1.0-0" }}
     </div>
-    <div class="name">
-        <div class="type">{{product.type.name}}</div>
-        <div class="design">{{product.design.name}}</div>
+    <div *ngIf="product.priceInfo.sale" class="sale">
+      {{
+        product.priceInfo.sale.inclVAT | currency: "ZAR":"symbol-narrow":"1.0-0"
+      }}
     </div>
-    <div class="price">
-        <div [ngClass]="{hasSalePrice: !!product.priceInfo.sale}" class="retail">{{price |
-            currency:'ZAR':'symbol-narrow':'1.0-0'}}</div>
-        <div *ngIf="product.priceInfo.sale" class="sale">{{product.priceInfo.sale.inclVAT |
-            currency:'ZAR':'symbol-narrow':'1.0-0'}}</div>
-    </div>
-    <div class="cta">
-        <button appButton [mini]="true" label="More Info" [outline]="true"></button>
-        <button *ngIf="inStock" appButton [mini]="true" label="Add To Cart"></button>
-        <div class="no-stock" *ngIf="!inStock">
-            Out Of Stock
-        </div>
-    </div>
+  </div>
+  <div class="cta">
+    <button appButton [mini]="true" label="More Info" [outline]="true"></button>
+    <button
+      class="add-to-cart"
+      *ngIf="inStock"
+      appButton
+      [mini]="true"
+      label="Add To Cart"
+    ></button>
+    <div class="no-stock" *ngIf="!inStock">Out Of Stock</div>
+  </div>
 </div>

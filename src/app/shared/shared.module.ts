@@ -10,6 +10,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChipModule } from 'primeng/chip';
 import { DialogModule } from 'primeng/dialog';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -22,7 +23,6 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ButtonDirective } from './button.directive';
 
 // import { LazyLoadDirective } from './lazy-load.directive';
-
 
 const sharedItems: any[] = [
   MenubarModule,
@@ -44,12 +44,14 @@ const sharedItems: any[] = [
   CheckboxModule,
   ChipModule,
   HttpClientModule,
+  InputNumberModule,
 ];
 
 @NgModule({
   declarations: [
     // LazyLoadDirective,
-  ButtonDirective],
+    ButtonDirective,
+  ],
   imports: [...sharedItems],
   exports: [
     ...sharedItems,
@@ -57,4 +59,4 @@ const sharedItems: any[] = [
     // LazyLoadDirective
   ],
 })
-export class SharedModule{}
+export class SharedModule {}
