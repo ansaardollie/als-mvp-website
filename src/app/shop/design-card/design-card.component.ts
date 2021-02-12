@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { environment } from './../../../environments/environment';
+
 @Component({
   selector: 'app-design-card',
   templateUrl: './design-card.component.html',
@@ -15,7 +17,7 @@ export class DesignCardComponent implements OnInit {
   ngOnInit(): void {}
 
   get imageURL() {
-    return `https://res.cloudinary.com/als-trial-webstore/image/upload/t_designV1/designs/${this.id}.jpg`;
+    return `${environment.cloudinary.designCardImageUrl}/${this.id}.jpg`;
   }
 
   onLoadImage() {

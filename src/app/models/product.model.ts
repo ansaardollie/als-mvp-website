@@ -28,6 +28,7 @@ export interface CategoryInfo {
   name: string;
   parentID?: string;
   alias?: string;
+  nameInProduct?: string;
 }
 
 export interface Product {
@@ -52,4 +53,12 @@ export interface Product {
     sale?: PriceInfo;
   };
   rating?: number;
+  lifestyleImageIDs?: string[];
+}
+
+export interface Database {
+  products: Product[];
+  categories: CategoryInfo[];
+  ranges: RangeInfo[];
+  designs: DesignInfo[];
 }

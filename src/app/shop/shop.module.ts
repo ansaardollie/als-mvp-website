@@ -16,6 +16,8 @@ import { RangeCatalogueComponent } from './range-catalogue/range-catalogue.compo
 import { RangeDesignCatalogueComponent } from './range-design-catalogue/range-design-catalogue.component';
 import { DesignCardComponent } from './design-card/design-card.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { ProductImageGalleryComponent } from './product-image-gallery/product-image-gallery.component';
+import { ProductBreadcrumbsComponent } from './product-breadcrumbs/product-breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
     RangeDesignCatalogueComponent,
     DesignCardComponent,
     ProductPageComponent,
+    ProductImageGalleryComponent,
+    ProductBreadcrumbsComponent,
   ],
   imports: [CommonModule, SharedModule, ShopRoutingModule],
 })

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { environment } from './../../../environments/environment';
 import { Product } from './../../models/product.model';
 
 @Component({
@@ -41,6 +42,6 @@ export class ProductCardComponent implements OnInit {
   }
 
   get imageURL(): string {
-    return `https://res.cloudinary.com/als-trial-webstore/image/upload/t_product-card/products/${this.product.id}.jpg`;
+    return `${environment.cloudinary.productCardImageUrl}/${this.product.id}.jpg`;
   }
 }

@@ -5,7 +5,9 @@
     /></a>
   </div>
   <div class="name">
-    <div class="type">{{ product.type.name }}</div>
+    <div class="type">
+      {{ product.type.nameInProduct || product.type.name }}
+    </div>
     <div class="design">{{ product.design.name }}</div>
   </div>
   <div class="price">

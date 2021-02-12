@@ -63,7 +63,7 @@ export class CategoryService implements OnDestroy {
       map((next) => {
         let cats: CategoryInfo[];
         if (id == 'root') {
-          cats = next.filter((c) => c.parentID === undefined);
+          cats = next.filter((c) => !c.parentID);
         } else {
           cats = next.filter((c) => c.parentID === id);
         }
@@ -75,11 +75,26 @@ export class CategoryService implements OnDestroy {
   }
 
   getNameByID(id: string) {
-    const element = this.categoryMasterList.find(c => c.id == id);
-   if (!!element) {
+    const element = this.categoryMasterList.find((c) => c.id == id);
+    if (!!element) {
       return element.name;
     } else {
       return '';
     }
-  } 
+  }
+
+  getCategoryAncestors(child: CategoryInfo): CategoryInfo[] {
+    const parentId = child.parentID;
+    let hasParent = !!parentId;
+    const results: CategoryInfo[] = [];
+    if (!!hasParent) {
+      const parent = this.categoryMasterList.find((c) => c.id == parentId);
+      if (!!parent) {
+        const parentAncestors = this.getCategoryAncestors(parent);
+        results.push(parent);
+        results.push(...parentAncestors);
+      }
+    }
+    return results;
+  }
 }

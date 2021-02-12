@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="prev">
+    <i (click)="previousImage()" class="pi pi-angle-left prev"></i>
+  </div>
+  <div class="next">
+    <i (click)="nextImage()" class="pi pi-angle-right next"></i>
+  </div>
+  <div class="featured">
+    <img
+      [@imageState]="featuredStates[i]"
+      *ngFor="let url of imageUrls; let i = index"
+      class="featured-image selected"
+      [src]="url"
+      [ngClass]="{
+        after: i > this.selectedIndex,
+        before: i < this.selectedIndex
+      }"
+      [style]="'z-index: ' + i"
+    />
+  </div>
+  <div class="list">
+    <div
+      class="thumbnail-container"
+      (click)="selectIndex(i)"
+      *ngFor="let thumb of thumbnailUrls; let i = index"
+      [ngClass]="{
+        thumbSelected: selectedIndex == i
+      }"
+    >
+      <img [src]="thumb" alt="" />
+    </div>
+  </div>
+</div>

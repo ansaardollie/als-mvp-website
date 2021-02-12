@@ -1,26 +1,49 @@
+<div id="spacer" class="spacer"></div>
 <div class="container">
   <div *ngIf="!(isLoadingProduct$ | async)" class="above-fold">
+    <div class="crumbs">
+      <app-product-breadcrumbs [taxonomy]="taxonomy"></app-product-breadcrumbs>
+    </div>
+    <div class="gallery">
+      <app-product-image-gallery
+        [product]="product"
+      ></app-product-image-gallery>
+    </div>
     <div class="name">
-      <p class="type">{{ product.type.name }}</p>
+      <p class="type">{{ product.type.nameInProduct || product.type.name }}</p>
       <p class="design">{{ product.design.name }}</p>
     </div>
     <div class="price">
-      {{ price | currency: "ZAR":"symbol-narrow" }}
+      <div class="qty">
+        <p>Quantity:</p>
+        <p-inputNumber
+          [min]="1"
+          [max]="stockLevel"
+          [(ngModel)]="quantity"
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+        ></p-inputNumber>
+      </div>
+      <p>{{ price | currency: "ZAR":"symbol-narrow" }}</p>
     </div>
     <div class="cta">
-      <p-inputNumber
-        [min]="1"
-        [max]="100"
-        [(ngModel)]="quantity"
-        [showButtons]="true"
-        buttonLayout="horizontal"
-        spinnerMode="horizontal"
-        decrementButtonClass="p-button-danger"
-        incrementButtonClass="p-button-success"
-        incrementButtonIcon="pi pi-plus"
-        decrementButtonIcon="pi pi-minus"
-      ></p-inputNumber>
       <button appButton [cta]="true" label="Add to cart"></button>
+    </div>
+    <div class="description">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis
+        assumenda deserunt explicabo ducimus accusantium cupiditate illum vitae
+        dolorum minima recusandae.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, amet
+        quasi? Officia distinctio minima magni.
+      </p>
     </div>
   </div>
 </div>

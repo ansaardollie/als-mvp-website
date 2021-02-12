@@ -16,14 +16,6 @@ const routes: Route[] = [
     component: ShopComponent,
     children: [
       {
-        path: 'products',
-        component: ProductCatalogueComponent,
-      },
-      {
-        path: 'products/:id',
-        component: ProductPageComponent,
-      },
-      {
         path: 'categories',
         redirectTo: 'categories/',
       },
@@ -33,6 +25,14 @@ const routes: Route[] = [
         resolve: {
           categories: CategoryResolverService,
         },
+      },
+      {
+        path: 'products',
+        component: ProductCatalogueComponent,
+      },
+      {
+        path: 'products/:id',
+        component: ProductPageComponent,
       },
       {
         path: 'ranges',

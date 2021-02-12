@@ -1,3 +1,7 @@
+div.spacer {
+  height: 47px;
+  width: 100vw;
+}
 div.container {
   width: 100vw;
   height: 400vh;
@@ -5,15 +9,33 @@ div.container {
 
 div.above-fold {
   min-height: calc(100vh - 47px);
-  padding: 40px 120px;
+  padding: 0px 100px;
   display: grid;
-  gap: 20px;
+  gap: 5px;
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: 100px 50px 80px 200px auto;
-  grid-template-areas: "gallery name" "gallery price" "gallery cta" "gallery description" "gallery spacer";
+  grid-template-rows: 40px 100px auto 100px 100px;
+  grid-template-areas: "crumbs crumbs" "gallery name" "gallery description" "gallery price" "gallery cta";
   justify-content: center;
   align-items: center;
 }
+
+div.crumbs {
+  grid-area: crumbs;
+  text-align: left;
+}
+
+div.gallery {
+  grid-area: gallery;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 div * {
   text-align: left;
 }
@@ -21,7 +43,7 @@ div * {
 div.name {
   grid-area: name;
 }
-div.name p {
+p {
   margin: 0;
   padding: 0;
 }
@@ -34,6 +56,13 @@ p.type {
 
 div.price {
   font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+div.price p {
+  line-height: 50px;
+  font-size: 1.8rem;
 }
 
 p.design {
@@ -49,23 +78,39 @@ div.price {
 div.cta {
   grid-area: cta;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+div.qty {
+  display: flex;
+}
+
+div.qty p {
+  font-size: 1.3rem;
+  margin-right: 10px;
 }
 
 div.cta button {
   text-align: center;
+  width: 100%;
 }
 
-::ng-deep div.cta input.p-inputnumber-input {
-  width: 80px;
+::ng-deep div.price input.p-inputnumber-input {
+  width: 60px;
+  height: 50px;
 }
 
-::ng-deep div.cta button.p-inputnumber-button {
+::ng-deep div.price button.p-inputnumber-button {
   background-color: black;
 }
 
 div.description {
   grid-area: description;
+  align-self: flex-start;
+  margin-top: 40px;
+  font-size: 1.15rem;
+}
+
+div.description p {
+  padding: 15px 10px;
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRouteSnapshot, ActivationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -9,32 +7,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  title$: Observable<string>;
-  constructor(private router: Router) {
-    // console.log(this.route.snapshot.pathFromRoot);
-    // console.log('Shop Component activated route', this.route.snapshot);
-    this.title$ = this.router.events.pipe(
-      filter((event) => event instanceof ActivationEnd),
-      map((event) => event as ActivationEnd),
-      map((event) => this.getTitle(event.snapshot))
-    );
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
-
-  getTitle(route: ActivatedRouteSnapshot): string {
-    console.log(route);
-    let title = 'Shop';
-
-    // switch (page) {
-    //   case 'products':
-    //     title = 'Products';
-    //     break;
-
-    //   default:
-    //     break;
-    // }
-
-    return title;
-  }
 }

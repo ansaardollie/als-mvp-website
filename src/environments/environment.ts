@@ -3,7 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  cloudinary: {
+    productCardImageUrl:
+      'https://res.cloudinary.com/als-trial-webstore/image/upload/t_product-card/products',
+    categoryCardImageUrl:
+      'https://res.cloudinary.com/als-trial-webstore/image/upload/t_category_card/categories',
+    designCardImageUrl:
+      'https://res.cloudinary.com/als-trial-webstore/image/upload/t_designV1/designs',
+    productGalleryImageUrl:
+      'https://res.cloudinary.com/als-trial-webstore/image/upload/t_gallery-image',
+    lifestyleImagesUrl:
+      'https://res.cloudinary.com/als-trial-webstore/image/list',
+    galleryThumbnailImageUrl:
+      'https://res.cloudinary.com/als-trial-webstore/image/upload/t_gallery-thumbnail',
+  },
 };
 
 /*

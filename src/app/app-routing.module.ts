@@ -20,6 +20,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
     }),
   ],
   exports: [RouterModule],

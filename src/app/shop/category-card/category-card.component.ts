@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { environment } from './../../../environments/environment';
 import { CategoryInfo } from './../../models/product.model';
 
 @Component({
@@ -16,7 +17,7 @@ export class CategoryCardComponent implements OnInit {
   ngOnInit(): void {}
 
   get imageURL() {
-    return `https://res.cloudinary.com/als-trial-webstore/image/upload/t_category_card/categories/${this.category.id}.jpg`;
+    return `${environment.cloudinary.categoryCardImageUrl}/${this.category.id}.jpg`;
   }
 
   onLoadImage() {
