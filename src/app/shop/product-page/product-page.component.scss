@@ -13,7 +13,7 @@ div.above-fold {
   display: grid;
   gap: 5px;
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: 40px 100px auto 100px 100px;
+  grid-template-rows: 40px 90px 200px 90px 90px;
   grid-template-areas: "crumbs crumbs" "gallery name" "gallery description" "gallery price" "gallery cta";
   justify-content: center;
   align-items: center;
@@ -54,11 +54,20 @@ p.type {
   text-transform: uppercase;
 }
 
+div.name.skeleton {
+  align-self: stretch;
+  justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
 div.price {
   font-size: 1.4rem;
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 div.price p {
   line-height: 50px;
@@ -76,13 +85,28 @@ div.price {
 }
 
 div.cta {
+  width: 100%;
   grid-area: cta;
+  justify-self: stretch;
+  align-self: stretch;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 }
 div.qty {
   display: flex;
+}
+
+div.description.skeleton {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-self: stretch;
+  justify-content: space-evenly;
+}
+
+div.skeleton div {
+  margin: 2.5px;
 }
 
 div.qty p {
@@ -107,7 +131,6 @@ div.cta button {
 div.description {
   grid-area: description;
   align-self: flex-start;
-  margin-top: 40px;
   font-size: 1.15rem;
 }
 

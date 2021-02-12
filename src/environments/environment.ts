@@ -16,7 +16,7 @@ export const environment = {
     lifestyleImagesUrl:
       'https://res.cloudinary.com/als-trial-webstore/image/list',
     galleryThumbnailImageUrl:
-      'https://res.cloudinary.com/als-trial-webstore/image/upload/t_gallery-thumbnail',
+      'http://localhost:4567/4000/https://res.cloudinary.com/als-trial-webstore/image/upload/t_gallery-thumbnail',
   },
 };
 

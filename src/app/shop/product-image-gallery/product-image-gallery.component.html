@@ -1,4 +1,25 @@
-<div class="container">
+<div
+  *ngIf="!doneLoadingImages || !doneLoadingThumbnails"
+  class="container skeleton"
+>
+  <div class="list">
+    <div
+      class="thumbnail-container"
+      *ngFor="let thumb of thumbnailUrls; let i = index"
+    >
+      <p-skeleton shape="square" size="70px"></p-skeleton>
+    </div>
+  </div>
+
+  <div class="featured">
+    <p-skeleton shape="square" size="500px"></p-skeleton>
+  </div>
+</div>
+
+<div
+  [ngClass]="{ loading: !doneLoadingImages || !doneLoadingThumbnails }"
+  class="container"
+>
   <div class="prev">
     <i (click)="previousImage()" class="pi pi-angle-left prev"></i>
   </div>
@@ -11,11 +32,11 @@
       *ngFor="let url of imageUrls; let i = index"
       class="featured-image selected"
       [src]="url"
+      (load)="loadImage(i)"
       [ngClass]="{
         after: i > this.selectedIndex,
         before: i < this.selectedIndex
       }"
-      [style]="'z-index: ' + i"
     />
   </div>
   <div class="list">
@@ -27,7 +48,7 @@
         thumbSelected: selectedIndex == i
       }"
     >
-      <img [src]="thumb" alt="" />
+      <img [src]="thumb" alt="" (load)="loadThumbnail(i)" />
     </div>
   </div>
 </div>

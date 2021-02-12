@@ -17,6 +17,14 @@ div.container {
   overflow: hidden;
 }
 
+div.loading {
+  display: none;
+}
+
+div.thumbnail-container.loadingImage {
+  border: none !important;
+}
+
 div.next {
   grid-area: next;
   display: grid;
@@ -38,6 +46,7 @@ div.prev {
 i {
   grid-area: button;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .featured img {
@@ -77,6 +86,7 @@ img.hidden {
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 5px rgb(50, 50, 50, 0.4);
+  cursor: pointer;
 }
 
 /* width */

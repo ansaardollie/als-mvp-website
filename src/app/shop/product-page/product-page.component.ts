@@ -1,9 +1,10 @@
 import { ViewportScroller } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { skipWhile, switchMap } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
+import { environment } from 'src/environments/environment';
 
 import { CategoryInfo } from './../../models/product.model';
 import { CategoryService } from './../../services/category.service';
@@ -15,11 +16,18 @@ import { ProductService } from './../../services/product.service';
   styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent implements OnInit, AfterViewInit {
-  isLoadingProduct$ = new BehaviorSubject<boolean>(true);
+  isLoadingProduct = true;
+  isLoadingImages = true;
   product!: Product;
   quantity: number = 1;
   prodSub!: Subscription;
   taxonomy: CategoryInfo[] = [];
+  featuredImageUrls: string[] = [];
+  thumbailImageUrls: string[] = [];
+
+  get isLoading() {
+    return this.isLoadingImages || this.isLoadingProduct;
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -41,8 +49,32 @@ export class ProductPageComponent implements OnInit, AfterViewInit {
       .subscribe((next) => {
         this.product = next;
         this.taxonomy = this.product.categories.reverse();
-        this.isLoadingProduct$.next(false);
+        this.isLoadingProduct = false;
+        const mainUrls: string[] = [];
+        const thumbUrls: string[] = [];
+        mainUrls.push(
+          `${environment.cloudinary.productGalleryImageUrl}/products/${this.product.id}.jpg`
+        );
+        thumbUrls.push(
+          `${environment.cloudinary.galleryThumbnailImageUrl}/products/${this.product.id}.jpg`
+        );
+
+        this.product.lifestyleImageIDs?.forEach((lpID) => {
+          mainUrls.push(
+            `${environment.cloudinary.productGalleryImageUrl}/lifestyle/${lpID}.jpg`
+          );
+          thumbUrls.push(
+            `${environment.cloudinary.galleryThumbnailImageUrl}/lifestyle/${lpID}.jpg`
+          );
+        });
+
+        this.featuredImageUrls = mainUrls;
+        this.thumbailImageUrls = thumbUrls;
       });
+  }
+
+  doneLoadingImages(event: boolean) {
+    this.isLoadingImages = !event;
   }
 
   ngAfterViewInit() {
@@ -50,10 +82,16 @@ export class ProductPageComponent implements OnInit, AfterViewInit {
   }
 
   get price() {
+    if (!this.product) {
+      return 0;
+    }
     return this.product.priceInfo.retail.inclVAT;
   }
 
   get stockLevel() {
+    if (!this.product) {
+      return 0;
+    }
     return this.product.stockLevels.HO.available;
   }
 }

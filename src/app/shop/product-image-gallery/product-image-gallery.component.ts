@@ -1,8 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
-import { environment } from './../../../environments/environment';
-import { Product } from './../../models/product.model';
 import { ProductService } from './../../services/product.service';
 
 @Component({
@@ -48,42 +46,30 @@ import { ProductService } from './../../services/product.service';
     ]),
   ],
 })
-export class ProductImageGalleryComponent implements OnInit {
-  @Input() product!: Product;
-  isLoading: boolean = true;
-  imageUrls: string[] = [];
-  thumbnailUrls: string[] = [];
+export class ProductImageGalleryComponent implements OnInit, OnChanges {
+  @Output() doneLoading: EventEmitter<boolean> = new EventEmitter();
+  @Input() imageUrls: string[] = [];
+  @Input() thumbnailUrls: string[] = [];
   selectedIndex: number = 0;
   featuredStates: string[] = [];
   hiddenStates: boolean[] = [];
+  imageLoadingStates: boolean[] = [];
+  thumbnailLoadingStates: boolean[] = [];
 
   constructor(private ps: ProductService) {}
 
-  ngOnInit(): void {
-    this.imageUrls.push(
-      `${environment.cloudinary.productGalleryImageUrl}/products/${this.product.id}.jpg`
-    );
-
-    this.thumbnailUrls.push(
-      `${environment.cloudinary.galleryThumbnailImageUrl}/products/${this.product.id}.jpg`
-    );
-
-    this.featuredStates.push('featured');
-    this.hiddenStates.push(false);
-
-    this.product.lifestyleImageIDs?.forEach((lpID) => {
-      this.imageUrls.push(
-        `${environment.cloudinary.productGalleryImageUrl}/lifestyle/${lpID}.jpg`
-      );
-      this.thumbnailUrls.push(
-        `${environment.cloudinary.galleryThumbnailImageUrl}/lifestyle/${lpID}.jpg`
-      );
-      this.featuredStates.push('after');
+  ngOnChanges(changes: SimpleChanges): void {
+    const qty = this.imageUrls.length;
+    for (let i = 0; i < qty; i++) {
+      this.featuredStates.push(i == 0 ? 'featured' : 'after');
       this.hiddenStates.push(false);
-    });
-
-    console.log(this.imageUrls);
+      this.imageLoadingStates.push(false);
+      this.thumbnailLoadingStates.push(false);
+      this.doneLoading.next(false);
+    }
   }
+
+  ngOnInit(): void {}
 
   nextImage() {
     const curIndex = this.selectedIndex;
@@ -92,6 +78,38 @@ export class ProductImageGalleryComponent implements OnInit {
       this.featuredStates[curIndex] = 'before';
       this.featuredStates[nextIndex] = 'featured';
       this.selectedIndex = nextIndex;
+    }
+  }
+
+  get doneLoadingImages() {
+    for (let state of this.imageLoadingStates) {
+      if (!state) return false;
+    }
+    return true;
+  }
+
+  get doneLoadingThumbnails() {
+    for (let state of this.thumbnailLoadingStates) {
+      if (!state) return false;
+    }
+    return true;
+  }
+
+  loadImage(index: number) {
+    this.imageLoadingStates[index] = true;
+    this.checkLoadingStates();
+  }
+
+  loadThumbnail(index: number) {
+    this.thumbnailLoadingStates[index] = true;
+    this.checkLoadingStates();
+  }
+
+  checkLoadingStates() {
+    if (this.doneLoading && this.doneLoadingThumbnails) {
+      this.doneLoading.next(true);
+    } else {
+      this.doneLoading.next(false);
     }
   }
 
@@ -110,17 +128,11 @@ export class ProductImageGalleryComponent implements OnInit {
       if (index > this.selectedIndex) {
         for (let i = this.selectedIndex; i < index; i++) {
           this.featuredStates[i] = 'before';
-          if (index - i > 1) {
-            this.hiddenStates[i] = true;
-          }
         }
       }
       if (index < this.selectedIndex) {
         for (let i = this.selectedIndex; i > index; i--) {
           this.featuredStates[i] = 'after';
-          if (i - index > 1) {
-            this.hiddenStates[i] = true;
-          }
         }
       }
       this.featuredStates[index] = 'featured';

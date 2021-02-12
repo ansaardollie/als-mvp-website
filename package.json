@@ -25,6 +25,7 @@
     "cloudinary-core": "^2.11.3",
     "intersection-observer": "^0.12.0",
     "ng-multiselect-dropdown": "^0.2.14",
+    "ngx-red-zoom": "^0.6.0",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^11.1.0",

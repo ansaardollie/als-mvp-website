@@ -3,12 +3,12 @@
     <a [routerLink]="['/shop', 'categories']">
       <p class="name">Shop</p>
     </a>
-    <p>&nbsp;/&nbsp;</p>
+    <p>&nbsp;>&nbsp;</p>
   </div>
   <div class="crumb" *ngFor="let cat of taxonomy; let i = index">
     <a [routerLink]="['/shop', 'categories', cat.id]">
       <p class="name">{{ cat.name }}</p>
     </a>
-    <p *ngIf="i != taxonomy.length - 1">&nbsp;/&nbsp;</p>
+    <p *ngIf="i != taxonomy.length - 1">&nbsp;>&nbsp;</p>
   </div>
 </div>

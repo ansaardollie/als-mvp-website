@@ -1,19 +1,34 @@
 <div id="spacer" class="spacer"></div>
 <div class="container">
-  <div *ngIf="!(isLoadingProduct$ | async)" class="above-fold">
+  <div class="above-fold">
     <div class="crumbs">
-      <app-product-breadcrumbs [taxonomy]="taxonomy"></app-product-breadcrumbs>
+      <p-skeleton *ngIf="isLoading" height="20px" width="400px"></p-skeleton>
+      <app-product-breadcrumbs
+        *ngIf="!isLoading"
+        [taxonomy]="taxonomy"
+      ></app-product-breadcrumbs>
     </div>
     <div class="gallery">
       <app-product-image-gallery
-        [product]="product"
+        (doneLoading)="doneLoadingImages($event)"
+        [imageUrls]="featuredImageUrls"
+        [thumbnailUrls]="thumbailImageUrls"
       ></app-product-image-gallery>
     </div>
-    <div class="name">
+    <div *ngIf="isLoading" class="name skeleton">
+      <p-skeleton width="75%" height="40px"></p-skeleton>
+      <p-skeleton width="60%" height="30px"></p-skeleton>
+    </div>
+    <div *ngIf="!isLoading" class="name">
       <p class="type">{{ product.type.nameInProduct || product.type.name }}</p>
       <p class="design">{{ product.design.name }}</p>
     </div>
-    <div class="price">
+    <div class="price" *ngIf="isLoading">
+      <p-skeleton width="120px" height="50px"></p-skeleton>
+      <p-skeleton width="200px" height="50px"></p-skeleton>
+    </div>
+    <div *ngIf="!isLoading" class="price">
+      <p>{{ price | currency: "ZAR":"symbol-narrow" }}</p>
       <div class="qty">
         <p>Quantity:</p>
         <p-inputNumber
@@ -29,12 +44,45 @@
           decrementButtonIcon="pi pi-minus"
         ></p-inputNumber>
       </div>
-      <p>{{ price | currency: "ZAR":"symbol-narrow" }}</p>
     </div>
     <div class="cta">
-      <button appButton [cta]="true" label="Add to cart"></button>
+      <button
+        *ngIf="!isLoading"
+        appButton
+        [cta]="true"
+        label="Add to cart"
+      ></button>
+
+      <p-skeleton *ngIf="isLoading" width="100%" height="90px"></p-skeleton>
     </div>
-    <div class="description">
+    <div class="description skeleton" *ngIf="isLoading">
+      <div class="desc-p">
+        <p-skeleton width="100%" height="15px"></p-skeleton>
+      </div>
+      <div class="desc-p">
+        <p-skeleton width="100%" height="15px"></p-skeleton>
+      </div>
+      <div class="desc-p">
+        <p-skeleton width="100%" height="15px"></p-skeleton>
+      </div>
+      <div class="desc-p">
+        <p-skeleton width="60%" height="15px"></p-skeleton>
+      </div>
+      <br />
+      <div class="desc-p">
+        <p-skeleton width="100%" height="15px"></p-skeleton>
+      </div>
+      <div class="desc-p">
+        <p-skeleton width="100%" height="15px"></p-skeleton>
+      </div>
+      <div class="desc-p">
+        <p-skeleton width="100%" height="15px"></p-skeleton>
+      </div>
+      <div class="desc-p">
+        <p-skeleton width="60%" height="15px"></p-skeleton>
+      </div>
+    </div>
+    <div *ngIf="!isLoading" class="description">
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis
         assumenda deserunt explicabo ducimus accusantium cupiditate illum vitae
