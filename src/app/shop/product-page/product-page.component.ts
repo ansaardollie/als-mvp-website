@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { skipWhile, switchMap } from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { ProductService } from './../../services/product.service';
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.scss'],
 })
-export class ProductPageComponent implements OnInit, AfterViewInit {
+export class ProductPageComponent implements OnInit {
   isLoadingProduct = true;
   isLoadingImages = true;
   product!: Product;
@@ -37,6 +37,8 @@ export class ProductPageComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
+    this.scroller.scrollToPosition([0, 90]);
+    console.log('Scrolled from Product Page');
     this.prodSub = this.route.params
       .pipe(
         switchMap((params) => {
@@ -75,10 +77,6 @@ export class ProductPageComponent implements OnInit, AfterViewInit {
 
   doneLoadingImages(event: boolean) {
     this.isLoadingImages = !event;
-  }
-
-  ngAfterViewInit() {
-    this.scroller.scrollToAnchor('spacer');
   }
 
   get price() {

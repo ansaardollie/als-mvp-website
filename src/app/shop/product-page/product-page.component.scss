@@ -5,6 +5,17 @@ div.spacer {
 div.container {
   width: 100vw;
   height: 400vh;
+  scroll-behavior: smooth;
+}
+div.spae {
+  width: 100%;
+  height: 300vh;
+  background-color: purple;
+}
+#test {
+  width: 100%;
+  height: 80px;
+  background-color: pink;
 }
 
 div.above-fold {
@@ -93,6 +104,17 @@ div.cta {
   flex-direction: column;
   justify-content: space-around;
 }
+div.cta button {
+  height: 100%;
+}
+::ng-deep div.cta span {
+  transition: font-size 0.3s ease-in-out;
+}
+
+::ng-deep div.above-fold div.cta:hover span {
+  font-size: 2.1rem;
+}
+
 div.qty {
   display: flex;
 }
@@ -135,5 +157,5 @@ div.description {
 }
 
 div.description p {
-  padding: 15px 10px;
+  padding: 15px 0px;
 }

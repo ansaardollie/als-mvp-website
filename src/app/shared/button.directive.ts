@@ -1,10 +1,9 @@
 import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appButton]'
+  selector: '[appButton]',
 })
 export class ButtonDirective implements OnInit {
-
   @Input() label!: string;
 
   @Input() cta!: boolean;
@@ -15,27 +14,27 @@ export class ButtonDirective implements OnInit {
 
   @Input() mini!: boolean;
 
-  constructor(private er: ElementRef, private renderer: Renderer2) { }
+  constructor(private er: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     const label = document.createElement('span');
     label.innerHTML = this.label;
     this.renderer.appendChild(this.er.nativeElement, label);
     this.renderer.addClass(this.er.nativeElement, 'my-button');
-    if (this.cta){
+    if (this.cta) {
       this.renderer.addClass(this.er.nativeElement, 'cta');
     }
     if (this.outline) {
       this.renderer.addClass(this.er.nativeElement, 'outline-button');
     }
-    if (this.mini){
+    if (this.mini) {
       this.renderer.addClass(this.er.nativeElement, 'mini-button');
     }
   }
 
-  @HostListener('mouseenter') onMouseEnter(event: any): void{
-    if (this.hoverEffect){
-      if (this.outline){
+  @HostListener('mouseenter') onMouseEnter(event: any): void {
+    if (this.hoverEffect) {
+      if (this.outline) {
         this.renderer.removeClass(this.er.nativeElement, 'outline-button');
       } else {
         this.renderer.addClass(this.er.nativeElement, 'outline-button');
@@ -44,13 +43,12 @@ export class ButtonDirective implements OnInit {
   }
 
   @HostListener('mouseleave') onMouseLeave(event: any): void {
-    if (this.hoverEffect){
-      if (this.outline){
+    if (this.hoverEffect) {
+      if (this.outline) {
         this.renderer.addClass(this.er.nativeElement, 'outline-button');
       } else {
         this.renderer.removeClass(this.er.nativeElement, 'outline-button');
       }
     }
   }
-
 }

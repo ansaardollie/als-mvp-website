@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryInfo } from 'src/app/models/product.model';
@@ -16,7 +17,8 @@ export class CategoryCatalogueComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private cs: CategoryService
+    private cs: CategoryService,
+    private scroller: ViewportScroller
   ) {}
 
   ngOnInit(): void {
