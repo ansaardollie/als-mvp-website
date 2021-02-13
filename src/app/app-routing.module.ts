@@ -13,6 +13,12 @@ const routes: Routes = [
       return import('./shop/shop.module').then((m) => m.ShopModule);
     },
   },
+  {
+    path: 'user',
+    loadChildren: () => {
+      return import('./user/user.module').then((m) => m.UserModule);
+    },
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,41 @@
+div.container {
+  width: 400px;
+  height: 250px;
+  box-shadow: 4px 4px 10px rgba(39, 39, 39, 0.4);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 10px 20px;
+}
+
+input {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+span.show-password-toggle {
+  cursor: pointer;
+}
+
+div.cta {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-template-areas: "space cta spinner";
+}
+
+button {
+  grid-area: cta;
+}
+div.spinner {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  justify-self: center;
+  grid-area: spinner;
+}
+
+div.spinner i {
+  font-size: 20px;
+}

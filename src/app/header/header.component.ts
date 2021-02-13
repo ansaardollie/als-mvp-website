@@ -1,8 +1,10 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api/menuitem';
 import { Subscription } from 'rxjs';
+import { SubSink } from 'subsink';
 
 import { LayoutService, ScreenSize } from '../services/layout.service';
+import { UserService } from './../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   screenSize!: ScreenSize;
   screenSub!: Subscription;
 
+  subsink = new SubSink();
+
   sidebarVisible = false;
   gottenHeight = false;
 
@@ -25,7 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @ViewChild('stickyNav', { static: false }) nav!: ElementRef;
   @ViewChild('mobileNav', { static: false }) mobileNav!: ElementRef;
 
-  constructor(private ss: LayoutService) {}
+  constructor(private ss: LayoutService, private us: UserService) {}
   ngOnDestroy(): void {
     this.screenSub.unsubscribe();
   }
@@ -104,9 +108,32 @@ export class HeaderComponent implements OnInit, OnDestroy {
       },
     ];
 
-    this.screenSub = this.ss.screenSize$.subscribe((next) => {
-      this.screenSize = next;
-    });
+    this.subsink.add(
+      this.ss.screenSize$.subscribe((next) => {
+        this.screenSize = next;
+      })
+    );
+
+    this.subsink.add(
+      this.us.user.subscribe((user) => {
+        if (!!user) {
+          this.mainMenuItems.push({
+            label: 'My Account',
+            items: [
+              {
+                label: user.email,
+              },
+              {
+                label: user.password,
+              },
+              {
+                label: user.isWholesaleClient ? 'Wholesale' : 'Retail',
+              },
+            ],
+          });
+        }
+      })
+    );
   }
 
   closeSidebar(): void {
