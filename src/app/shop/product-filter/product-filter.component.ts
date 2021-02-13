@@ -1,4 +1,3 @@
-import { ViewportScroller } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -40,15 +39,13 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
     private fs: FilterService,
     private cs: CategoryService,
     private rs: RangeService,
-    private ds: DesignService,
-    private scroller: ViewportScroller
+    private ds: DesignService
   ) {
     this.categories$ = this.cs.categories;
     this.ranges$ = this.rs.ranges;
     this.designs$ = this.ds.designs;
     const filterSub = this.fs.productFilter.subscribe((n) => {
       this.currentFilter = n;
-      this.scroller.scrollToPosition([0, 0]);
     });
     const catSub = this.fs.filterCategoryIDs.subscribe(
       (n) => (this.selectedCategories = n)

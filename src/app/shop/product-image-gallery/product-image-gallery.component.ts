@@ -106,7 +106,7 @@ export class ProductImageGalleryComponent implements OnInit, OnChanges {
   }
 
   checkLoadingStates() {
-    if (this.doneLoading && this.doneLoadingThumbnails) {
+    if (this.doneLoadingImages && this.doneLoadingThumbnails) {
       this.doneLoading.next(true);
     } else {
       this.doneLoading.next(false);
