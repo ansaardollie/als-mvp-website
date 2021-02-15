@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { skipWhile, switchMap } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
-import { environment } from 'src/environments/environment';
 import { SubSink } from 'subsink';
 
 import { CategoryInfo } from './../../models/product.model';
@@ -51,26 +50,26 @@ export class ProductPageComponent implements OnInit, OnDestroy {
         this.product = next;
         this.taxonomy = this.product.categories.reverse();
         this.isLoadingProduct = false;
-        const mainUrls: string[] = [];
-        const thumbUrls: string[] = [];
-        mainUrls.push(
-          `${environment.cloudinary.productGalleryImageUrl}/products/${this.product.id}.jpg`
-        );
-        thumbUrls.push(
-          `${environment.cloudinary.galleryThumbnailImageUrl}/products/${this.product.id}.jpg`
-        );
+        // const mainUrls: string[] = [];
+        // const thumbUrls: string[] = [];
+        // mainUrls.push(
+        //   `${environment.cloudinary.productGalleryImageUrl}/products/${this.product.id}.jpg`
+        // );
+        // thumbUrls.push(
+        //   `${environment.cloudinary.galleryThumbnailImageUrl}/products/${this.product.id}.jpg`
+        // );
 
-        this.product.lifestyleImageIDs?.forEach((lpID) => {
-          mainUrls.push(
-            `${environment.cloudinary.productGalleryImageUrl}/lifestyle/${lpID}.jpg`
-          );
-          thumbUrls.push(
-            `${environment.cloudinary.galleryThumbnailImageUrl}/lifestyle/${lpID}.jpg`
-          );
-        });
+        // this.product.lifestyleImageIDs?.forEach((lpID) => {
+        //   mainUrls.push(
+        //     `${environment.cloudinary.productGalleryImageUrl}/lifestyle/${lpID}.jpg`
+        //   );
+        //   thumbUrls.push(
+        //     `${environment.cloudinary.galleryThumbnailImageUrl}/lifestyle/${lpID}.jpg`
+        //   );
+        // });
 
-        this.featuredImageUrls = mainUrls;
-        this.thumbailImageUrls = thumbUrls;
+        // this.featuredImageUrls = mainUrls;
+        // this.thumbailImageUrls = thumbUrls;
       });
     const wholesaleSub = this.us.userIsWholesaleClient.subscribe(
       (next) => (this.wholesaleClient = next)

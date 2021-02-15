@@ -12,7 +12,7 @@
   </div>
 </div> -->
 <div class="container">
-  <div class="more">
+  <div (click)="showDialog = true" class="more">
     <i class="pi pi-info-circle"></i>
   </div>
   <div class="id">{{ product.id }}</div>
@@ -43,3 +43,61 @@
     ></p-inputNumber>
   </div>
 </div>
+
+<!-- <p-dialog
+  [dismissableMask]="true"
+  [style]="{ width: '70vw' }"
+  [modal]="true"
+  [(visible)]="showDialog"
+  ><ng-template pTemplate="header">
+    <div class="modal-name">
+      {{ product.type.nameInProduct }}&nbsp;-&nbsp;{{ product.design.name }}
+    </div>
+  </ng-template>
+  <div class="dialogue-content">
+    <app-product-image-gallery
+      [smallerSize]="true"
+      [product]="product"
+    ></app-product-image-gallery>
+    <div class="info">
+      <div class="description">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. At incidunt
+          rerum libero vel quam, assumenda quaerat quia modi alias ratione.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas sunt
+          unde ipsam assumenda magni a accusantium numquam blanditiis reiciendis
+          fugiat.
+        </p>
+      </div>
+      <div class="price-info">
+        <div class="incH header">incl. VAT</div>
+        <div class="exH header">excl. VAT</div>
+        <div class="incP price">
+          {{ inVAT | currency: "ZAR":"symbol-narrow":"1.2-2" }}
+        </div>
+        <div class="exP price">
+          {{ exVAT | currency: "ZAR":"symbol-narrow":"1.2-2" }}
+        </div>
+      </div>
+      <div class="dialogue-qty">
+        <p-inputNumber
+          [min]="0"
+          [showButtons]="true"
+          [(ngModel)]="amount"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+        ></p-inputNumber>
+      </div>
+
+      <div class="cta">
+        <button [cta]="true" appButton label="Add To Cart"></button>
+      </div>
+    </div>
+  </div>
+</p-dialog> -->

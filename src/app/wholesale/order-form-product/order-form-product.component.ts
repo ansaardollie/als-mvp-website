@@ -98,6 +98,7 @@ export class OrderFormProductComponent implements OnInit {
   @Input() product: Product = test;
   @Input() showExVatPrice: boolean = false;
   amount: number = 0;
+  showDialog: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
@@ -127,5 +128,15 @@ export class OrderFormProductComponent implements OnInit {
       if (this.showExVatPrice) return this.product.priceInfo.wholesale.exclVAT;
       else return this.product.priceInfo.wholesale.inclVAT;
     }
+  }
+
+  get exVAT(): number {
+    if (!this.product.priceInfo.wholesale) return 0;
+    else return this.product.priceInfo.wholesale.exclVAT;
+  }
+
+  get inVAT(): number {
+    if (!this.product.priceInfo.wholesale) return 0;
+    else return this.product.priceInfo.wholesale.inclVAT;
   }
 }

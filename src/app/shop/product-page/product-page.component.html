@@ -9,9 +9,9 @@
     </div>
     <div class="gallery">
       <app-product-image-gallery
+        *ngIf="!isLoadingProduct"
         (doneLoading)="doneLoadingImages($event)"
-        [imageUrls]="featuredImageUrls"
-        [thumbnailUrls]="thumbailImageUrls"
+        [product]="product"
       ></app-product-image-gallery>
     </div>
     <div *ngIf="isLoading" class="name skeleton">

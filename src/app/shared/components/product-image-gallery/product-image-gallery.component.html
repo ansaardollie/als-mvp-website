@@ -1,0 +1,57 @@
+<div
+  *ngIf="!doneLoadingImages || !doneLoadingThumbnails"
+  class="container skeleton"
+>
+  <div class="list">
+    <div
+      class="thumbnail-container"
+      *ngFor="let thumb of thumbnailUrls; let i = index"
+    >
+      <p-skeleton shape="square" size="70px"></p-skeleton>
+    </div>
+  </div>
+
+  <div class="featured">
+    <p-skeleton shape="square" size="500px"></p-skeleton>
+  </div>
+</div>
+
+<div
+  [ngClass]="{
+    loading: !doneLoadingImages || !doneLoadingThumbnails,
+    smallerSize: smallerSize
+  }"
+  class="container"
+>
+  <div *ngIf="selectedIndex > 0" class="prev">
+    <i (click)="previousImage()" class="pi pi-angle-left prev"></i>
+  </div>
+  <div *ngIf="selectedIndex + 1 < imageUrls.length" class="next">
+    <i (click)="nextImage()" class="pi pi-angle-right next"></i>
+  </div>
+  <div [ngClass]="{ smallerSize: smallerSize }" class="featured">
+    <img
+      [@imageState]="featuredStates[i]"
+      *ngFor="let url of imageUrls; let i = index"
+      class="featured-image selected"
+      [src]="url"
+      (load)="loadImage(i)"
+      [ngClass]="{
+        after: i > this.selectedIndex,
+        before: i < this.selectedIndex
+      }"
+    />
+  </div>
+  <div class="list">
+    <div
+      class="thumbnail-container"
+      (click)="selectIndex(i)"
+      *ngFor="let thumb of thumbnailUrls; let i = index"
+      [ngClass]="{
+        thumbSelected: selectedIndex == i
+      }"
+    >
+      <img [src]="thumb" alt="" (load)="loadThumbnail(i)" />
+    </div>
+  </div>
+</div>

@@ -8,7 +8,6 @@ import { DesignCardComponent } from './design-card/design-card.component';
 import { ProductBreadcrumbsComponent } from './product-breadcrumbs/product-breadcrumbs.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductCatalogueComponent } from './product-catalogue/product-catalogue.component';
-import { ProductImageGalleryComponent } from './product-image-gallery/product-image-gallery.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductSkeletonComponent } from './product-skeleton/product-skeleton.component';
 import { RangeCatalogueComponent } from './range-catalogue/range-catalogue.component';
@@ -28,7 +27,6 @@ import { ShopComponent } from './shop.component';
     RangeDesignCatalogueComponent,
     DesignCardComponent,
     ProductPageComponent,
-    ProductImageGalleryComponent,
     ProductBreadcrumbsComponent,
   ],
   imports: [CommonModule, SharedModule, ShopRoutingModule],

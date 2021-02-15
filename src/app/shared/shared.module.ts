@@ -20,6 +20,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SidebarModule } from 'primeng/sidebar';
 import { SkeletonModule } from 'primeng/skeleton';
+import { TabViewModule } from 'primeng/tabview';
 
 import { ButtonDirective } from './button.directive';
 import {
@@ -27,6 +28,7 @@ import {
 } from './components/product-catalogue-infobar/product-catalogue-infobar.component';
 import { ProductFilterInfoComponent } from './components/product-filter-info/product-filter-info.component';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
+import { ProductImageGalleryComponent } from './components/product-image-gallery/product-image-gallery.component';
 import { MyCurrencyPipe } from './my-currency.pipe';
 
 // import { LazyLoadDirective } from './lazy-load.directive';
@@ -42,6 +44,7 @@ const sharedItems: any[] = [
   CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'als-trial-webstore' }),
   CarouselModule,
   PanelMenuModule,
+  TabViewModule,
   SidebarModule,
   SkeletonModule,
   PanelModule,
@@ -53,6 +56,7 @@ const sharedItems: any[] = [
   HttpClientModule,
   InputNumberModule,
   SelectButtonModule,
+  DialogModule,
 ];
 
 @NgModule({
@@ -60,6 +64,7 @@ const sharedItems: any[] = [
     // LazyLoadDirective,
     ProductCatalogueInfobarComponent,
     ProductFilterInfoComponent,
+    ProductImageGalleryComponent,
     ButtonDirective,
     MyCurrencyPipe,
     ProductFilterComponent,
@@ -67,6 +72,7 @@ const sharedItems: any[] = [
   imports: [...sharedItems],
   exports: [
     ...sharedItems,
+    ProductImageGalleryComponent,
     ProductFilterInfoComponent,
     ButtonDirective,
     MyCurrencyPipe,

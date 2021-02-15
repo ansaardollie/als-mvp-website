@@ -2,8 +2,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-import { Product } from './../../models/product.model';
-import { ProductService } from './../../services/product.service';
+import { Product } from './../../../models/product.model';
+import { ProductService } from './../../../services/product.service';
 
 @Component({
   selector: 'app-product-image-gallery',
@@ -51,6 +51,7 @@ import { ProductService } from './../../services/product.service';
 export class ProductImageGalleryComponent implements OnInit, OnChanges {
   @Input() product!: Product;
   @Output() doneLoading: EventEmitter<boolean> = new EventEmitter();
+  @Input() smallerSize: boolean = false;
   imageUrls: string[] = [];
   thumbnailUrls: string[] = [];
   hasLoadedUrls: boolean = false;
