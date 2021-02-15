@@ -1,7 +1,9 @@
 <div class="title">Products</div>
 <div class="container">
   <div class="filter">
-    <app-product-filter></app-product-filter>
+    <app-product-filter
+      [wholesaleClient]="wholesaleClient"
+    ></app-product-filter>
   </div>
   <div class="content">
     <div *ngIf="isLoadingProducts$ | async" class="subcontainer">
@@ -15,12 +17,18 @@
     <div *ngIf="!(isLoadingProducts$ | async)" class="filter-info">
       <app-product-catalogue-infobar
         [numProducts]="(productQuantity$ | async) || 0"
+        (showExVatPrices)="priceTypeChange($event)"
+        [wholesaleClient]="wholesaleClient"
       >
       </app-product-catalogue-infobar>
     </div>
     <div *ngIf="!(isLoadingProducts$ | async)" class="subcontainer">
       <div class="product-card" *ngFor="let product of products$ | async">
-        <app-product-card [product]="product"></app-product-card>
+        <app-product-card
+          [wholesaleClient]="wholesaleClient"
+          [product]="product"
+          [showExVatPrice]="showPricesExVat"
+        ></app-product-card>
       </div>
     </div>
 

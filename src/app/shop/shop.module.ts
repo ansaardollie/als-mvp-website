@@ -7,10 +7,7 @@ import { CategoryCatalogueComponent } from './category-catalogue/category-catalo
 import { DesignCardComponent } from './design-card/design-card.component';
 import { ProductBreadcrumbsComponent } from './product-breadcrumbs/product-breadcrumbs.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { ProductCatalogueInfobarComponent } from './product-catalogue-infobar/product-catalogue-infobar.component';
 import { ProductCatalogueComponent } from './product-catalogue/product-catalogue.component';
-import { ProductFilterInfoComponent } from './product-filter-info/product-filter-info.component';
-import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { ProductImageGalleryComponent } from './product-image-gallery/product-image-gallery.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductSkeletonComponent } from './product-skeleton/product-skeleton.component';
@@ -22,12 +19,9 @@ import { ShopComponent } from './shop.component';
 @NgModule({
   declarations: [
     ProductCardComponent,
-    ProductFilterComponent,
-    ProductFilterInfoComponent,
     ProductSkeletonComponent,
     ProductCatalogueComponent,
     ShopComponent,
-    ProductCatalogueInfobarComponent,
     CategoryCatalogueComponent,
     CategoryCardComponent,
     RangeCatalogueComponent,

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="title">Wholesale Order Form</div>
+  <div class="headings">
+    <div class="id">SKU</div>
+    <div class="image">Image</div>
+    <div class="name">Description</div>
+    <div class="stock">Stock</div>
+    <div class="qty">Quantity</div>
+  </div>
+  <div *ngIf="!(isLoading | async)">
+    <div class="category" *ngFor="let cat of categories">
+      <p class="cat-header">{{ cat.name }}</p>
+      <div class="cat-item">
+        <div class="product" *ngFor="let product of sortedProductList[cat.id]">
+          <!-- <app-order-form-product [product]="product"></app-order-form-product> -->
+          <!-- <app-order-form-product></app-order-form-product> -->
+          <!-- <p-inputNumber [(ngModel)]="amount"></p-inputNumber> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="filler"></div>

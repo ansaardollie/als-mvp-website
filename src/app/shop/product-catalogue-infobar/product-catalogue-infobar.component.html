@@ -3,5 +3,13 @@
   <div class="filters">
     <app-product-filter-info></app-product-filter-info>
   </div>
-  <div class="sort"></div>
+  <div class="price-type">
+    <p>View Prices</p>
+    <p-selectButton
+      [options]="priceOptions"
+      [(ngModel)]="selectedPriceOption"
+      (onChange)="priceChange()"
+      optionLabel="label"
+    ></p-selectButton>
+  </div>
 </div>

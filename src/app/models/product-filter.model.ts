@@ -108,16 +108,41 @@ export class SaleFilter implements IFilter {
   }
 }
 
+export class WholesaleFilter implements IFilter {
+  constructor(public on: boolean = false) {}
+
+  check(product: Product): boolean {
+    if (this.on) {
+      return !!product.priceInfo.wholesale;
+    } else {
+      return true;
+    }
+  }
+}
+
 type filterObject = {
   categoryFilter: CategoryFilter;
   rangeFilter: RangeFilter;
   designFilter: DesignFilter;
   priceFilter: PriceFilter;
   saleFilter: SaleFilter;
+  wholesaleFilter: WholesaleFilter;
 };
 
 export class ProductFilter {
   get hasFilters() {
+    return (
+      this.categoryFilter.categoryIDs.length > 0 ||
+      this.rangeFilter.rangeIDs.length > 0 ||
+      this.designFilter.designIDs.length > 0 ||
+      this.priceFilter.max != undefined ||
+      this.priceFilter.min != undefined ||
+      this.saleFilter.onSale ||
+      this.wholesaleFilter.on
+    );
+  }
+
+  get hasClearableFilter() {
     return (
       this.categoryFilter.categoryIDs.length > 0 ||
       this.rangeFilter.rangeIDs.length > 0 ||
@@ -133,7 +158,8 @@ export class ProductFilter {
     public rangeFilter: RangeFilter,
     public designFilter: DesignFilter,
     public priceFilter: PriceFilter,
-    public saleFilter: SaleFilter
+    public saleFilter: SaleFilter,
+    public wholesaleFilter: WholesaleFilter
   ) {}
 
   static fromObject(obj: filterObject): ProductFilter {
@@ -142,7 +168,8 @@ export class ProductFilter {
       obj.rangeFilter,
       obj.designFilter,
       obj.priceFilter,
-      obj.saleFilter
+      obj.saleFilter,
+      obj.wholesaleFilter
     );
   }
 
@@ -152,7 +179,8 @@ export class ProductFilter {
       new RangeFilter([]),
       new DesignFilter([]),
       new PriceFilter(),
-      new SaleFilter()
+      new SaleFilter(),
+      new WholesaleFilter()
     );
   }
 
@@ -162,7 +190,8 @@ export class ProductFilter {
       this.rangeFilter.check(product) &&
       this.designFilter.check(product) &&
       this.priceFilter.check(product) &&
-      this.saleFilter.check(product)
+      this.saleFilter.check(product) &&
+      this.wholesaleFilter.check(product)
     );
   }
 }

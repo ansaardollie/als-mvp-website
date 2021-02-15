@@ -1,0 +1,86 @@
+div.container {
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+  border-top: none;
+  display: grid;
+  grid-template-columns: 50px 120px 150px 1fr 120px 180px 180px;
+  grid-template-areas: "more id image name price stock qty";
+  align-items: center;
+}
+
+div.id {
+  grid-area: id;
+  font-size: 0.7rem;
+}
+
+div.price {
+  grid-area: price;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+div.image {
+  grid-area: image;
+  height: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+div.more {
+  grid-area: more;
+}
+div.more i {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.image img {
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+}
+
+div.name {
+  grid-area: name;
+  justify-self: flex-start;
+  font-size: 1.1rem;
+  font-family: "Baskerville Light";
+  font-weight: bold;
+}
+
+div.stock {
+  justify-self: center;
+  grid-area: stock;
+  white-space: pre;
+  width: 70%;
+  height: 40px;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+div.qty {
+  grid-area: qty;
+}
+
+::ng-deep div.qty input.p-inputnumber-input {
+  width: 100px;
+}
+
+.noStock {
+  background-color: rgb(236, 72, 72);
+  color: white;
+  font-size: 1rem;
+}
+
+.inStock {
+  background-color: rgb(89, 223, 96);
+  font-size: 1rem;
+  color: white;
+}

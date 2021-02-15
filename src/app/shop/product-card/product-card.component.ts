@@ -10,7 +10,8 @@ import { Product } from './../../models/product.model';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
-
+  @Input() wholesaleClient: boolean = false;
+  @Input() showExVatPrice: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
@@ -21,7 +22,13 @@ export class ProductCardComponent implements OnInit {
     // } else {
     //   return this.product.priceInfo.retail.inclVAT;
     // }
-    return this.product.priceInfo.retail.inclVAT;
+    if (!this.wholesaleClient || !this.product.priceInfo.wholesale) {
+      return this.product.priceInfo.retail.inclVAT;
+    } else {
+      return this.showExVatPrice
+        ? this.product.priceInfo.wholesale.exclVAT
+        : this.product.priceInfo.wholesale.inclVAT;
+    }
   }
 
   get inStock(): boolean {
@@ -43,5 +50,13 @@ export class ProductCardComponent implements OnInit {
 
   get imageURL(): string {
     return `${environment.cloudinary.productCardImageUrl}/${this.product.id}.jpg`;
+  }
+
+  get showSalePrice(): boolean {
+    if (this.wholesaleClient) {
+      return false;
+    } else {
+      return !!this.product.priceInfo.sale;
+    }
   }
 }

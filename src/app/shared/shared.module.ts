@@ -17,10 +17,17 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { PanelModule } from 'primeng/panel';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { SidebarModule } from 'primeng/sidebar';
 import { SkeletonModule } from 'primeng/skeleton';
 
 import { ButtonDirective } from './button.directive';
+import {
+  ProductCatalogueInfobarComponent,
+} from './components/product-catalogue-infobar/product-catalogue-infobar.component';
+import { ProductFilterInfoComponent } from './components/product-filter-info/product-filter-info.component';
+import { ProductFilterComponent } from './components/product-filter/product-filter.component';
+import { MyCurrencyPipe } from './my-currency.pipe';
 
 // import { LazyLoadDirective } from './lazy-load.directive';
 
@@ -45,17 +52,26 @@ const sharedItems: any[] = [
   ChipModule,
   HttpClientModule,
   InputNumberModule,
+  SelectButtonModule,
 ];
 
 @NgModule({
   declarations: [
     // LazyLoadDirective,
+    ProductCatalogueInfobarComponent,
+    ProductFilterInfoComponent,
     ButtonDirective,
+    MyCurrencyPipe,
+    ProductFilterComponent,
   ],
   imports: [...sharedItems],
   exports: [
     ...sharedItems,
+    ProductFilterInfoComponent,
     ButtonDirective,
+    MyCurrencyPipe,
+    ProductFilterComponent,
+    ProductCatalogueInfobarComponent,
     // LazyLoadDirective
   ],
 })

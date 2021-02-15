@@ -17,11 +17,10 @@ export class AppComponent {
   ngOnInit(): void {
     this.router.events.subscribe((nextEvent) => {
       if (nextEvent instanceof NavigationEnd) {
-        console.log('Routed to new page');
         const url = nextEvent.url;
         this.onHomePage = url == '/' || url == '/home';
         const onShopPage = url.indexOf('products') >= 0;
-        this.showCart = onShopPage;
+        this.showCart = !this.onHomePage;
       }
     });
   }

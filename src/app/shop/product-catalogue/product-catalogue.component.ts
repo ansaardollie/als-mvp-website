@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DesignService } from 'src/app/services/design.service';
+import { SubSink } from 'subsink';
 
 import { Product } from './../../models/product.model';
-import { CategoryService } from './../../services/category.service';
 import { FilterService } from './../../services/filter.service';
 import { ProductService } from './../../services/product.service';
-import { RangeService } from './../../services/range.service';
+import { UserService } from './../../services/user.service';
 
 @Component({
   selector: 'app-product-catalogue',
@@ -19,14 +18,16 @@ export class ProductCatalogueComponent implements OnInit, OnDestroy {
   products$: Observable<Product[]>;
   canLoadMoreProducts$: Observable<boolean>;
   productQuantity$: Observable<number>;
+  wholesaleClient: boolean = false;
+  showPricesExVat: boolean = false;
+
+  subsink = new SubSink();
 
   constructor(
     private ps: ProductService,
     private fs: FilterService,
     private route: ActivatedRoute,
-    private cs: CategoryService,
-    private rs: RangeService,
-    private ds: DesignService
+    private us: UserService
   ) {
     this.isLoadingProducts$ = this.ps.isLoadingProducts;
     this.products$ = this.ps.products;
@@ -38,7 +39,13 @@ export class ProductCatalogueComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subsink.add(
+      this.us.userIsWholesaleClient.subscribe((isWholesaleClient) => {
+        this.wholesaleClient = isWholesaleClient;
+      })
+    );
+  }
 
   ngOnDestroy(): void {
     this.fs.clearFilter();
@@ -49,7 +56,6 @@ export class ProductCatalogueComponent implements OnInit, OnDestroy {
   }
 
   handleQueryParams(params: Params) {
-    console.log('Recieved params', params);
     if (!!params.category) {
       const cats = (params.category as string).split(',');
       this.fs.addCategories(cats);
@@ -86,5 +92,9 @@ export class ProductCatalogueComponent implements OnInit, OnDestroy {
     } else {
       this.fs.setSaleFilter(false);
     }
+  }
+
+  priceTypeChange(showExVatPrices: boolean) {
+    this.showPricesExVat = showExVatPrices;
   }
 }

@@ -1,14 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ProductFilter } from 'src/app/models/product-filter.model';
+import { CategoryInfo, DesignInfo, RangeInfo } from 'src/app/models/product.model';
+import { CategoryService } from 'src/app/services/category.service';
+import { DesignService } from 'src/app/services/design.service';
+import { FilterService } from 'src/app/services/filter.service';
+import { RangeService } from 'src/app/services/range.service';
 import { SubSink } from 'subsink';
-
-import { ProductFilter } from './../../models/product-filter.model';
-import { CategoryInfo, DesignInfo, RangeInfo } from './../../models/product.model';
-import { CategoryService } from './../../services/category.service';
-import { DesignService } from './../../services/design.service';
-import { FilterService } from './../../services/filter.service';
-import { RangeService } from './../../services/range.service';
 
 @Component({
   selector: 'app-product-filter',
@@ -16,6 +15,7 @@ import { RangeService } from './../../services/range.service';
   styleUrls: ['./product-filter.component.scss'],
 })
 export class ProductFilterComponent implements OnInit, OnDestroy {
+  @Input() wholesaleClient: boolean = false;
   currentFilter: ProductFilter = ProductFilter.noFilter();
   selectedCategories: string[] = [];
   selectedDesigns: string[] = [];

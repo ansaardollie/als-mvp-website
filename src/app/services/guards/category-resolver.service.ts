@@ -17,7 +17,6 @@ export class CategoryResolverService implements Resolve<CategoryInfo[]> {
     state: RouterStateSnapshot
   ): CategoryInfo[] | Observable<CategoryInfo[]> | Promise<CategoryInfo[]> {
     const id = route.params.id;
-    console.log('Running resolver');
     let obs: Observable<CategoryInfo[]>;
     if (id == '') {
       obs = this.cs.childCategories('root');

@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const windowScroll = window.pageYOffset;
     if (windowScroll >= this.menuPosition) {
       this.sticky = true;
-      // console.log("MOVED PAST")
     } else {
       this.sticky = false;
     }
@@ -97,6 +96,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       {
         label: 'Wholesale',
         command: this.closeSidebar.bind(this),
+        items: [
+          {
+            label: 'Login',
+            routerLink: '/user/login',
+          },
+          {
+            label: 'Register',
+          },
+        ],
       },
       {
         label: 'FAQ',
@@ -105,6 +113,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
       {
         label: 'Contact',
         command: this.closeSidebar.bind(this),
+      },
+      {
+        label: 'Account',
+        items: [
+          {
+            label: 'Login',
+          },
+          {
+            label: 'Register',
+          },
+        ],
       },
     ];
 
@@ -117,7 +136,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subsink.add(
       this.us.user.subscribe((user) => {
         if (!!user) {
-          this.mainMenuItems.push({
+          this.mainMenuItems[6] = {
             label: 'My Account',
             items: [
               {
@@ -130,7 +149,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
                 label: user.isWholesaleClient ? 'Wholesale' : 'Retail',
               },
             ],
-          });
+          };
+          if (user.isWholesaleClient) {
+            this.mainMenuItems[3].items = [
+              {
+                label: 'Place New Order',
+                routerLink: '/wholesale/order',
+              },
+              {
+                label: 'View Current Orders',
+              },
+            ];
+          } else {
+            this.mainMenuItems[3].items = [
+              {
+                label: 'Login',
+                routerLink: '/user/login',
+              },
+              {
+                label: 'Register',
+              },
+            ];
+          }
         }
       })
     );

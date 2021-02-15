@@ -14,7 +14,6 @@ export class RangeCatalogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
-      console.log(data);
       this.rangesWithPhotos = data.ranges;
       this.designsWithPhotos = data.designs;
     });

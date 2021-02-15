@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { SubSink } from 'subsink';
 
-import { PriceFilter, PriceType, ProductFilter } from '../models/product-filter.model';
+import { PriceFilter, PriceType, ProductFilter, WholesaleFilter } from '../models/product-filter.model';
 import { CategoryFilter, DesignFilter, IFilter, RangeFilter, SaleFilter } from './../models/product-filter.model';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FilterService {
+export class FilterService implements OnDestroy {
   private productFilter$ = new BehaviorSubject<ProductFilter>(
     ProductFilter.noFilter()
   );
@@ -18,6 +20,7 @@ export class FilterService {
   private filterMinPrice$ = new BehaviorSubject<number | undefined>(undefined);
   private filterMaxPrice$ = new BehaviorSubject<number | undefined>(undefined);
   private filterSale$ = new BehaviorSubject<boolean>(false);
+  private filterWholesaleOnly$ = new BehaviorSubject<boolean>(false);
 
   private categoryIDs: string[] = [];
   private rangeIDs: string[] = [];
@@ -25,6 +28,9 @@ export class FilterService {
   private minPrice: number | undefined;
   private maxPrice: number | undefined;
   private onSale: boolean = false;
+  private wholesaleOnly: boolean = false;
+
+  private subsink = new SubSink();
 
   get productFilter() {
     return this.productFilter$.asObservable();
@@ -54,7 +60,20 @@ export class FilterService {
     return this.filterSale$.asObservable();
   }
 
-  constructor(private router: Router) {}
+  get filterWholesaleOnly() {
+    return this.filterWholesaleOnly$.asObservable();
+  }
+
+  constructor(private router: Router, private us: UserService) {
+    this.subsink.add(
+      this.us.userIsWholesaleClient.subscribe((isWholesaleClient) => {
+        this.wholesaleOnly = isWholesaleClient;
+        this.applyFilter();
+      })
+    );
+  }
+
+  ngOnDestroy(): void {}
 
   addCategory(id: string) {
     this.categoryIDs.push(id);
@@ -171,6 +190,11 @@ export class FilterService {
     this.applyFilter();
   }
 
+  setWholesaleFilter(filterWholesale: boolean) {
+    this.wholesaleOnly = filterWholesale;
+    this.applyFilter();
+  }
+
   applyFilter(): void {
     const filters: IFilter[] = [];
     const catFilter = new CategoryFilter(this.categoryIDs);
@@ -182,27 +206,8 @@ export class FilterService {
       this.onSale ? PriceType.SALE : PriceType.RETAIL
     );
     const saleFilter = new SaleFilter(this.onSale);
+    const wholesaleFilter = new WholesaleFilter(this.wholesaleOnly);
 
-    // if (this.categoryIDs.length > 0) {
-    //   const catFilter = new CategoryFilter(this.categoryIDs);
-    //   filters.push(catFilter);
-    // }
-    // if (this.rangeIDs.length > 0) {
-    //   const rangeFilter = new RangeFilter(this.rangeIDs);
-    //   filters.push(rangeFilter);
-    // }
-    // if (this.designIDs.length > 0) {
-    //   const designFilter = new DesignFilter(this.designIDs);
-    //   filters.push(designFilter);
-    // }
-    // if (!!this.minPrice || !!this.maxPrice) {
-    //   const priceFilter = new PriceFilter(this.minPrice, this.maxPrice);
-    //   filters.push(priceFilter);
-    // }
-    // if (this.onSale) {
-    //   const saleFilter = new SaleFilter();
-    //   filters.push(saleFilter);
-    // }
     this.filterCategoryID$.next(this.categoryIDs.slice());
     this.filterRangeID$.next(this.rangeIDs.slice());
     this.filterDesignID$.next(this.designIDs.slice());
@@ -215,6 +220,7 @@ export class FilterService {
       designFilter: designFilter,
       priceFilter: priceFilter,
       saleFilter: saleFilter,
+      wholesaleFilter: wholesaleFilter,
     });
     this.productFilter$.next(newFilter);
   }

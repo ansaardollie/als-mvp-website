@@ -62,3 +62,7 @@ export interface Database {
   ranges: RangeInfo[];
   designs: DesignInfo[];
 }
+
+export interface CategorySortedProductList {
+  [id: string]: Product[];
+}

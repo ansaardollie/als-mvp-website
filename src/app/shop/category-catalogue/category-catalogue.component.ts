@@ -22,8 +22,6 @@ export class CategoryCatalogueComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // console.log('Resolved data');
-    // console.log(this.route.snapshot.data);
     this.route.data.subscribe((next) => {
       if (next.categories.length == 0) {
         const id = this.route.snapshot.params.id;

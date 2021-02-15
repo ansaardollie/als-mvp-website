@@ -25,6 +25,23 @@ a:link {
   text-decoration: none;
 }
 
+div.title {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div.filler {
+  width: 100%;
+  height: 400vh;
+  background-color: sandybrown;
+}
+
 a:visited {
   text-decoration: none;
 }

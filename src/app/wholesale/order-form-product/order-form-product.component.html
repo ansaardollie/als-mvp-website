@@ -1,0 +1,45 @@
+<!-- <div class="container">
+  <div class="id">{{ product.id }}</div>
+  <div class="image">
+    <img [src]="imageUrl" alt="" />
+  </div>
+  <div class="name">{{ product.design.name }}</div>
+  <div class="stock">
+    {{ stockInfo }}
+  </div>
+  <div class="qty">
+    <p-inputNumber [(ngModel)]="quantity" [showButtons]="true"></p-inputNumber>
+  </div>
+</div> -->
+<div class="container">
+  <div class="more">
+    <i class="pi pi-info-circle"></i>
+  </div>
+  <div class="id">{{ product.id }}</div>
+  <div class="image">
+    <img [src]="imageUrl" alt="" />
+  </div>
+  <div class="name">{{ product.design.name }}</div>
+  <div
+    [ngClass]="{ inStock: maxStock > 0, noStock: maxStock <= 0 }"
+    class="stock"
+  >
+    {{ stockInfo }}
+  </div>
+  <div class="price">
+    {{ priceInfo | currency: "ZAR":"symbol-narrow":"1.2-2" }}
+  </div>
+  <div class="qty">
+    <p-inputNumber
+      [min]="0"
+      [showButtons]="true"
+      [(ngModel)]="amount"
+      buttonLayout="stacked"
+      spinnerMode="vertical"
+      decrementButtonClass="p-button-danger"
+      incrementButtonClass="p-button-success"
+      incrementButtonIcon="pi pi-plus"
+      decrementButtonIcon="pi pi-minus"
+    ></p-inputNumber>
+  </div>
+</div>

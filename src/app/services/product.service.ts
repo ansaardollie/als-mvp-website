@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { map, skipWhile } from 'rxjs/operators';
 
 import { ProductFilter } from './../models/product-filter.model';
-import { Product } from './../models/product.model';
+import { CategorySortedProductList, Product } from './../models/product.model';
 import { FilterService } from './filter.service';
 
 @Injectable({
@@ -20,6 +20,9 @@ export class ProductService implements OnDestroy {
   private isLoadingProducts$ = new BehaviorSubject<boolean>(false);
   private productMasterList$ = new BehaviorSubject<Product[]>(
     this.productMasterList
+  );
+  private productFilteredList$ = new BehaviorSubject<Product[]>(
+    this.productFilteredList
   );
   private products$ = new BehaviorSubject<Product[]>(this.productMasterList);
   private canLoadMoreProducts$ = new BehaviorSubject<boolean>(false);
@@ -41,8 +44,32 @@ export class ProductService implements OnDestroy {
     return this.productMasterList$.asObservable();
   }
 
+  get masterFilteredProducts() {
+    return this.productFilteredList$.asObservable();
+  }
+
   get productQuantity() {
     return this.productQuantity$.asObservable();
+  }
+
+  get categorySortedProducts(): Observable<CategorySortedProductList> {
+    return this.products.pipe(
+      skipWhile((pml) => pml.length == 0),
+      map((pml) => {
+        let start = new Date();
+        const catIDs = pml.map((p) => p.type.id);
+
+        const uniqueCatIDs = [...new Set(catIDs)];
+        const result: CategorySortedProductList = {};
+
+        uniqueCatIDs.forEach((id) => {
+          result[id] = pml.filter((p) => p.type.id == id).slice(0, 1);
+        });
+
+        let end = new Date();
+        return result;
+      })
+    );
   }
 
   constructor(private http: HttpClient, private fs: FilterService) {
@@ -98,9 +125,10 @@ export class ProductService implements OnDestroy {
       this.productFilteredList = this.productMasterList.filter((p) =>
         this.productFilter.check(p)
       );
-      console.log('Master filtered list', this.productFilteredList);
+      this.productFilteredList$.next(this.productFilteredList);
     } else {
       this.productFilteredList = this.productMasterList.slice();
+      this.productFilteredList$.next(this.productFilteredList);
     }
     const qty = this.productFilteredList.length;
     const products = this.productFilteredList.slice(0, this.pageSize);

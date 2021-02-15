@@ -1,0 +1,82 @@
+<div class="filter">
+  <div (click)="openFilter()" class="text">
+    <p>Filter</p>
+    <i class="pi pi-filter"></i>
+  </div>
+</div>
+
+<p-sidebar [(visible)]="displayFilter" [style]="{ width: '20vw' }">
+  <div class="sidebar-content">
+    <app-product-filter [wholesaleClient]="true"></app-product-filter>
+  </div>
+</p-sidebar>
+
+<div class="container">
+  <div class="title">Wholesale Order Form</div>
+  <app-product-catalogue-infobar
+    *ngIf="!(isLoading$ | async)"
+    [numProducts]="(productQuantity$ | async) || 0"
+    [wholesaleClient]="true"
+    (showExVatPrices)="showPricesExVat($event)"
+  ></app-product-catalogue-infobar>
+  <div *ngIf="isLoading$ | async" class="subcontainer">
+    <div
+      *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15]"
+      class="headings no-bg"
+    >
+      <div class="id">
+        <p-skeleton width="100px" height="30px"></p-skeleton>
+      </div>
+      <div class="image">
+        <p-skeleton width="30px" height="30px"></p-skeleton>
+      </div>
+      <div class="name">
+        <p-skeleton width="300px" height="30px"></p-skeleton>
+      </div>
+      <div class="price">
+        <p-skeleton width="100px" height="30px"></p-skeleton>
+      </div>
+      <div class="stock">
+        <p-skeleton width="150px" height="30px"></p-skeleton>
+      </div>
+      <div class="qty">
+        <p-skeleton width="150px" height="30px"></p-skeleton>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!(isLoading$ | async)" class="subcontainer">
+    <div class="form">
+      <div class="headings">
+        <div class="more">Info</div>
+        <div class="id">SKU</div>
+        <div class="image">Image</div>
+        <div class="name">Description</div>
+        <div class="price">
+          Price{{ exVatPricing ? " (excl. VAT)" : " (incl. VAT)" }}
+        </div>
+        <div class="stock">Stock</div>
+        <div class="qty">Quantity</div>
+      </div>
+      <div class="order-form-items" *ngIf="!(isLoading$ | async)">
+        <div class="category" *ngFor="let cat of categories">
+          <p class="cat-header">{{ getCategoryName(cat) }}</p>
+          <div class="cat-item">
+            <div class="product" *ngFor="let product of sortedProductList[cat]">
+              <app-order-form-product
+                [product]="product"
+                [showExVatPrice]="exVatPricing"
+              ></app-order-form-product>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="load-more"
+        *ngIf="!(isLoading$ | async) && (canLoadMoreProducts$ | async)"
+      >
+        <button (click)="loadMore()" appButton label="Load More"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="filler"></div>

@@ -27,8 +27,15 @@
       <p-skeleton width="200px" height="50px"></p-skeleton>
     </div>
     <div *ngIf="!isLoading" class="price">
-      <p>{{ price | currency: "ZAR":"symbol-narrow" }}</p>
-      <div class="qty">
+      <p>
+        <span [ngClass]="{ regularOverride: showSalePrice }">{{
+          price | myCurrency
+        }}</span>
+        <span *ngIf="showSalePrice" class="salePrice"
+          >&nbsp;{{ salePrice | myCurrency }}</span
+        >
+      </p>
+      <div *ngIf="stockLevel > 0 || wholesaleClient" class="qty">
         <p>Quantity:</p>
         <p-inputNumber
           [min]="1"
@@ -43,6 +50,10 @@
           decrementButtonIcon="pi pi-minus"
         ></p-inputNumber>
       </div>
+
+      <div class="qty" *ngIf="stockLevel <= 0 && !wholesaleClient">
+        <p class="out-of-stock">Out of Stock</p>
+      </div>
     </div>
     <div class="cta">
       <button
@@ -50,7 +61,7 @@
         appButton
         [cta]="true"
         [hoverEffect]="true"
-        label="Add to cart"
+        [label]="ctaLabel"
       ></button>
 
       <p-skeleton *ngIf="isLoading" width="100%" height="90px"></p-skeleton>

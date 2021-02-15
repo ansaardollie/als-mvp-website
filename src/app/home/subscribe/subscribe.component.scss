@@ -17,7 +17,8 @@ div.content {
   align-items: center;
   grid-template-columns: 60px 1fr 1fr 60px;
   grid-template-rows: 200px 80px 80px 1fr;
-  grid-template-areas: "lgut title title rgut"
+  grid-template-areas:
+    "lgut title title rgut"
     "lgut fname lname rgut"
     "lgut email email rgut"
     "lgut submit submit rgut";
@@ -43,7 +44,7 @@ hr.divider {
   margin: 0 auto;
 }
 
-div.title {
+div.subscribe-title {
   grid-area: title;
 }
 
@@ -62,7 +63,6 @@ div.first-name-input {
 
   margin-left: auto;
   margin-right: 2.5vw;
-
 }
 
 div.last-name-input {
@@ -95,12 +95,12 @@ div.container img {
   margin: 30px auto;
 }
 
-
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 
 @media (max-width: 1199px) {
   div.content {
-    height: fit-content
+    height: fit-content;
   }
 
   div.submit-button {
@@ -108,15 +108,15 @@ div.container img {
   }
 }
 
-@media (max-width: 899px) {}
+@media (max-width: 899px) {
+}
 
 @media (max-width: 599px) {
-
   div.content {
-
     grid-template-columns: 20px 1fr 20px;
     grid-template-rows: 200px 45px 45px 45px 1fr;
-    grid-template-areas: "lgut title rgut"
+    grid-template-areas:
+      "lgut title rgut"
       "lgut fname rgut"
       "lgut lname rgut"
       "lgut email rgut"
@@ -134,12 +134,11 @@ div.container img {
   }
 
   hr.divider {
-    width: calc(100vw -  40px);
+    width: calc(100vw - 40px);
     margin: 0;
   }
 
   .small-heading {
     width: 100%;
   }
-
 }

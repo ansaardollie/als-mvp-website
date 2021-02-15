@@ -19,6 +19,14 @@ const routes: Routes = [
       return import('./user/user.module').then((m) => m.UserModule);
     },
   },
+  {
+    path: 'wholesale',
+    loadChildren: () => {
+      return import('./wholesale/wholesale.module').then(
+        (m) => m.WholesaleModule
+      );
+    },
+  },
 ];
 
 @NgModule({

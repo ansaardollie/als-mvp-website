@@ -11,17 +11,21 @@
     <div class="design">{{ product.design.name }}</div>
   </div>
   <div class="price">
-    <div [ngClass]="{ hasSalePrice: !!product.priceInfo.sale }" class="retail">
-      {{ price | currency: "ZAR":"symbol-narrow":"1.0-0" }}
+    <div [ngClass]="{ hasSalePrice: showSalePrice }" class="retail">
+      {{ price | myCurrency }}
     </div>
-    <div *ngIf="product.priceInfo.sale" class="sale">
-      {{
-        product.priceInfo.sale.inclVAT | currency: "ZAR":"symbol-narrow":"1.0-0"
-      }}
+    <div *ngIf="showSalePrice" class="sale">
+      {{ product.priceInfo.sale?.inclVAT | myCurrency }}
     </div>
   </div>
   <div class="cta">
-    <button appButton [mini]="true" label="More Info" [outline]="true"></button>
+    <button
+      appButton
+      [routerLink]="[product.id]"
+      [mini]="true"
+      label="More Info"
+      [outline]="true"
+    ></button>
     <button
       class="add-to-cart"
       *ngIf="inStock"

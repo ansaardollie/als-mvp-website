@@ -67,8 +67,6 @@ export class CategoryService implements OnDestroy {
         } else {
           cats = next.filter((c) => c.parentID === id);
         }
-        console.log('Inside childCategories() call');
-        console.log(cats);
         return cats;
       })
     );

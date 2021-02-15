@@ -1,30 +1,31 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { skipWhile, switchMap } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
+import { SubSink } from 'subsink';
 
 import { CategoryInfo } from './../../models/product.model';
-import { CategoryService } from './../../services/category.service';
 import { ProductService } from './../../services/product.service';
+import { UserService } from './../../services/user.service';
 
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.scss'],
 })
-export class ProductPageComponent implements OnInit {
+export class ProductPageComponent implements OnInit, OnDestroy {
+  wholesaleClient: boolean = false;
   isLoadingProduct = true;
   isLoadingImages = true;
   product!: Product;
   quantity: number = 1;
-  prodSub!: Subscription;
   taxonomy: CategoryInfo[] = [];
   featuredImageUrls: string[] = [];
   thumbailImageUrls: string[] = [];
 
+  subsink = new SubSink();
   get isLoading() {
     return this.isLoadingImages || this.isLoadingProduct;
   }
@@ -32,18 +33,16 @@ export class ProductPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private ps: ProductService,
-    private cs: CategoryService,
-    private scroller: ViewportScroller
+    private scroller: ViewportScroller,
+    private us: UserService
   ) {}
 
   ngOnInit(): void {
     this.scroller.scrollToPosition([0, 90]);
-    console.log('Scrolled from Product Page');
-    this.prodSub = this.route.params
+    const prodSub = this.route.params
       .pipe(
         switchMap((params) => {
           const id = params.id;
-          console.log(id);
           return this.ps.getProduct(id);
         }),
         skipWhile((p) => !p)
@@ -73,6 +72,14 @@ export class ProductPageComponent implements OnInit {
         this.featuredImageUrls = mainUrls;
         this.thumbailImageUrls = thumbUrls;
       });
+    const wholesaleSub = this.us.userIsWholesaleClient.subscribe(
+      (next) => (this.wholesaleClient = next)
+    );
+    this.subsink.add(prodSub, wholesaleSub);
+  }
+
+  ngOnDestroy(): void {
+    this.subsink.unsubscribe();
   }
 
   doneLoadingImages(event: boolean) {
@@ -83,6 +90,9 @@ export class ProductPageComponent implements OnInit {
     if (!this.product) {
       return 0;
     }
+    if (this.wholesaleClient && !!this.product.priceInfo.wholesale) {
+      return this.product.priceInfo.wholesale.inclVAT;
+    }
     return this.product.priceInfo.retail.inclVAT;
   }
 
@@ -91,5 +101,24 @@ export class ProductPageComponent implements OnInit {
       return 0;
     }
     return this.product.stockLevels.HO.available;
+  }
+
+  get showSalePrice(): boolean {
+    if (this.wholesaleClient) {
+      return false;
+    } else {
+      return !!this.product.priceInfo.sale;
+    }
+  }
+
+  get salePrice(): number {
+    if (!this.product.priceInfo.sale) return 0;
+    else return this.product.priceInfo.sale.inclVAT;
+  }
+
+  get ctaLabel(): string {
+    if (this.stockLevel > 0) return 'Add to Cart';
+    else if (this.wholesaleClient) return 'Add To Cart\n(Backorder)';
+    else return 'Notify me when available';
   }
 }

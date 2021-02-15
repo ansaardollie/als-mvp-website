@@ -3,7 +3,8 @@ div.hero-image {
   display: grid;
   grid-template-columns: 20px 2fr 10fr 2fr 20px;
   grid-template-rows: 100px 250px 100px auto 20px;
-  grid-template-areas: "lgut lspace title rspace rgut"
+  grid-template-areas:
+    "lgut lspace title rspace rgut"
     "lgut lspace info rspace rgut"
     "lgut lspace cta rspace rgut"
     "bgut bgut bgut bgut bgut";
@@ -16,7 +17,7 @@ div.cta {
   margin-bottom: 30px;
 }
 
-div.title {
+div.landing-title {
   color: black;
   text-transform: uppercase;
   font-weight: bold;
@@ -33,17 +34,18 @@ div.info {
   justify-self: center;
 }
 
-div.info>p {
+div.info > p {
   margin: 20px;
   padding: 0;
 }
 
-div.landing>div.cta {
+div.landing > div.cta {
   grid-area: cta;
   align-self: start;
 }
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 
 @media (max-width: 1199px) {
   div.info {
@@ -59,7 +61,7 @@ div.landing>div.cta {
     align-items: center;
   }
 
-  div.title {
+  div.landing-title {
     margin: 100px 0px 20px;
     padding: 0 100px;
     font-size: 4.5rem;
@@ -72,19 +74,17 @@ div.landing>div.cta {
   }
 
   div.cta {
-    width: 100%
+    width: 100%;
   }
-
 }
 
 @media (max-width: 599px) {
   div.hero-image {
-
     min-height: calc(100vh - 80px);
   }
-  div.title {
+  div.landing-title {
     margin: 60px 0 0 0;
-    padding: 0 ;
+    padding: 0;
     font-size: 3rem;
   }
 
@@ -96,6 +96,6 @@ div.landing>div.cta {
 
   div.cta {
     padding: 30px;
-    width: 100%
+    width: 100%;
   }
 }
