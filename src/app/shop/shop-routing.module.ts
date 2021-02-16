@@ -10,7 +10,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { RangeCatalogueComponent } from './range-catalogue/range-catalogue.component';
 import { ShopComponent } from './shop.component';
 
-const routes: Route[] = [
+const SHOP_ROUTES: Route[] = [
   {
     path: '',
     component: ShopComponent,
@@ -47,7 +47,7 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(SHOP_ROUTES)],
   exports: [RouterModule],
 })
 export class ShopRoutingModule {}

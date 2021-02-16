@@ -1,0 +1,697 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>als-website documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">als-website documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>CategoryCatalogueComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shop/category-catalogue/category-catalogue.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-category-catalogue</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./category-catalogue.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./category-catalogue.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categories">categories</a>
+                            </li>
+                            <li>
+                                <a href="#umbrellaID">umbrellaID</a>
+                            </li>
+                            <li>
+                                <a href="#umbrellaName">umbrellaName</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#catchAllLabel">catchAllLabel</a>
+                                </li>
+                                <li>
+                                    <a href="#catchAllQueryParams">catchAllQueryParams</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, cs: <a href="../injectables/CategoryService.html">CategoryService</a>, scroller: <a href="https://angular.io/api/common/ViewportScroller" target="_blank">ViewportScroller</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cs</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoryService.html" target="_self" >CategoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>scroller</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/ViewportScroller" target="_blank" >ViewportScroller</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="categories"></a>
+                        <span class="name">
+                            <b>
+                            categories</b>
+                            <a href="#categories"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/CategoryInfo.html" target="_self" >CategoryInfo[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="umbrellaID"></a>
+                        <span class="name">
+                            <b>
+                            umbrellaID</b>
+                            <a href="#umbrellaID"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;root&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="umbrellaName"></a>
+                        <span class="name">
+                            <b>
+                            umbrellaName</b>
+                            <a href="#umbrellaName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;root&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="catchAllLabel"></a>
+                        <span class="name"><b>catchAllLabel</b><a href="#catchAllLabel"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>catchAllLabel()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:48</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="catchAllQueryParams"></a>
+                        <span class="name"><b>catchAllQueryParams</b><a href="#catchAllQueryParams"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>catchAllQueryParams()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/shop/category-catalogue/category-catalogue.component.ts:53</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ViewportScroller } from &#x27;@angular/common&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { CategoryInfo } from &#x27;src/app/models/product.model&#x27;;
+
+import { CategoryService } from &#x27;./../../services/category.service&#x27;;
+
+@Component({
+  selector: &#x27;app-category-catalogue&#x27;,
+  templateUrl: &#x27;./category-catalogue.component.html&#x27;,
+  styleUrls: [&#x27;./category-catalogue.component.scss&#x27;],
+})
+export class CategoryCatalogueComponent implements OnInit {
+  categories: CategoryInfo[] &#x3D; [];
+  umbrellaName: string &#x3D; &#x27;root&#x27;;
+  umbrellaID: string &#x3D; &#x27;root&#x27;;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private cs: CategoryService,
+    private scroller: ViewportScroller
+  ) {}
+
+  ngOnInit(): void {
+    this.route.data.subscribe((next) &#x3D;&gt; {
+      if (next.categories.length &#x3D;&#x3D; 0) {
+        const id &#x3D; this.route.snapshot.params.id;
+        this.router.navigate([&#x27;/shop&#x27;, &#x27;products&#x27;], {
+          queryParams: {
+            category: id,
+          },
+        });
+      } else {
+        this.categories &#x3D; next.categories;
+      }
+    });
+
+    this.route.params.subscribe((params) &#x3D;&gt; {
+      if (params.id &#x3D;&#x3D; &#x27;&#x27;) {
+        this.umbrellaName &#x3D; &#x27;root&#x27;;
+      } else {
+        this.umbrellaID &#x3D; params.id;
+        this.umbrellaName &#x3D; this.cs.getNameByID(this.umbrellaID);
+      }
+    });
+  }
+
+  get catchAllLabel() {
+    if (this.umbrellaName &#x3D;&#x3D; &#x27;root&#x27;) return &#x27;View All Products&#x27;;
+    else return &#x60;View All ${this.umbrellaName}&#x60;;
+  }
+
+  get catchAllQueryParams() {
+    if (this.umbrellaName &#x3D;&#x3D; &#x27;root&#x27;) return undefined;
+    else
+      return {
+        category: this.umbrellaID,
+      };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;title&quot;&gt;Shop By Category&lt;/div&gt;
+&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;a
+    class&#x3D;&quot;catch-all&quot;
+    [routerLink]&#x3D;&quot;[&#x27;/shop&#x27;, &#x27;products&#x27;]&quot;
+    [queryParams]&#x3D;&quot;catchAllQueryParams&quot;
+  &gt;
+    &lt;div class&#x3D;&quot;all&quot;&gt;{{ catchAllLabel }}&lt;/div&gt;&lt;/a
+  &gt;
+  &lt;app-category-card *ngFor&#x3D;&quot;let category of categories&quot; [category]&#x3D;&quot;category&quot;&gt;
+  &lt;/app-category-card&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./category-catalogue.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">div.title {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+div.container {
+  width: 100vw;
+  display: grid;
+  padding: 20px 200px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: min-content;
+  grid-gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.catch-all {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.all {
+  height: 80px;
+  width: 100%;
+  line-height: 80px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-family: &quot;Baskerville Light&quot;;
+  font-size: 1.8rem;
+  transition: font-size 0.5s ease;
+}
+
+.all:hover {
+  font-size: 2.1rem;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="title">Shop By Category</div><div class="container">  <a    class="catch-all"    [routerLink]="[\'/shop\', \'products\']"    [queryParams]="catchAllQueryParams"  >    <div class="all">{{ catchAllLabel }}</div></a  >  <app-category-card *ngFor="let category of categories" [category]="category">  </app-category-card></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartOverlayComponent', 'selector': 'app-cart-overlay'},{'name': 'CategoryCardComponent', 'selector': 'app-category-card'},{'name': 'CategoryCatalogueComponent', 'selector': 'app-category-catalogue'},{'name': 'CommunityComponent', 'selector': 'app-community'},{'name': 'DesignCardComponent', 'selector': 'app-design-card'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'OrderFormComponent', 'selector': 'app-order-form'},{'name': 'OrderFormPageComponent', 'selector': 'app-order-form-page'},{'name': 'OrderFormProductComponent', 'selector': 'app-order-form-product'},{'name': 'ProductBreadcrumbsComponent', 'selector': 'app-product-breadcrumbs'},{'name': 'ProductCardComponent', 'selector': 'app-product-card'},{'name': 'ProductCatalogueComponent', 'selector': 'app-product-catalogue'},{'name': 'ProductCatalogueInfobarComponent', 'selector': 'app-product-catalogue-infobar'},{'name': 'ProductCatalogueInfobarComponent', 'selector': 'app-product-catalogue-infobar'},{'name': 'ProductFilterComponent', 'selector': 'app-product-filter'},{'name': 'ProductFilterComponent', 'selector': 'app-product-filter'},{'name': 'ProductFilterInfoComponent', 'selector': 'app-product-filter-info'},{'name': 'ProductFilterInfoComponent', 'selector': 'app-product-filter-info'},{'name': 'ProductImageGalleryComponent', 'selector': 'app-product-image-gallery'},{'name': 'ProductImageGalleryComponent', 'selector': 'app-product-image-gallery'},{'name': 'ProductPageComponent', 'selector': 'app-product-page'},{'name': 'ProductSkeletonComponent', 'selector': 'app-product-skeleton'},{'name': 'RangeCatalogueComponent', 'selector': 'app-range-catalogue'},{'name': 'RangeDesignCatalogueComponent', 'selector': 'app-range-design-catalogue'},{'name': 'RangesShowcaseComponent', 'selector': 'app-ranges-showcase'},{'name': 'ShopComponent', 'selector': 'app-shop'},{'name': 'StoryComponent', 'selector': 'app-story'},{'name': 'SubscribeComponent', 'selector': 'app-subscribe'},{'name': 'WholesaleLandingComponent', 'selector': 'app-wholesale-landing'}];
+    var DIRECTIVES = [{'name': 'ButtonDirective', 'selector': '[appButton]'}];
+    var ACTUAL_COMPONENT = {'name': 'CategoryCatalogueComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CategoryCatalogueComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

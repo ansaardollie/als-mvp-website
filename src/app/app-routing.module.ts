@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
+const APP_ROUTES: Routes = [
   {
     path: '',
     pathMatch: 'full',
@@ -10,20 +10,23 @@ const routes: Routes = [
   {
     path: 'shop',
     loadChildren: () => {
-      return import('./shop/shop.module').then((m) => m.ShopModule);
+      //prettier-ignore
+      return import('./shop/shop.module').then(m => m.ShopModule);
     },
   },
   {
     path: 'user',
     loadChildren: () => {
-      return import('./user/user.module').then((m) => m.UserModule);
+      //prettier-ignore
+      return import('./user/user.module').then(m => m.UserModule);
     },
   },
   {
     path: 'wholesale',
     loadChildren: () => {
+      //prettier-ignore
       return import('./wholesale/wholesale.module').then(
-        (m) => m.WholesaleModule
+        m => m.WholesaleModule
       );
     },
   },
@@ -31,7 +34,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
+    RouterModule.forRoot(APP_ROUTES, {
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top',
     }),

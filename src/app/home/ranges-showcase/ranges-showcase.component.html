@@ -1,7 +1,11 @@
 <div #container class="container fullscreenSection">
   <div class="content fullscreenSection">
     <div class="carousel">
-      <p-carousel (onPage)="scroll($event)" [value]="ranges">
+      <p-carousel
+        [autoplayInterval]="4000"
+        (onPage)="scroll($event)"
+        [value]="ranges"
+      >
         <ng-template let-range pTemplate="item">
           <div class="carousel-item">
             <div class="range-title small-heading">{{ range.name }}</div>

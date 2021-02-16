@@ -3,7 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 
 import { LoginPageComponent } from './login-page/login-page.component';
 
-const routes: Route[] = [
+const USER_ROUTES: Route[] = [
   {
     path: '',
     pathMatch: 'full',
@@ -16,7 +16,7 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(USER_ROUTES)],
   exports: [RouterModule],
 })
 export class UserRoutingModule {}

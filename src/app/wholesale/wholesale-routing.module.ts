@@ -4,7 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { OrderFormPageComponent } from './order-form-page/order-form-page.component';
 import { WholesaleLandingComponent } from './wholesale-landing/wholesale-landing.component';
 
-const routes: Route[] = [
+const WHOLESALE_ROUTES: Route[] = [
   {
     path: '',
     pathMatch: 'full',
@@ -17,7 +17,7 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(WHOLESALE_ROUTES)],
   exports: [RouterModule],
 })
 export class WholesaleRoutingModule {}

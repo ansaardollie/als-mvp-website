@@ -14,7 +14,7 @@ const TestUser: UserInfo = {
   providedIn: 'root',
 })
 export class UserService {
-  private user$ = new BehaviorSubject<User>(TestUser);
+  private user$ = new BehaviorSubject<User>(null);
 
   get user() {
     return this.user$.asObservable();

@@ -1,0 +1,1529 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>als-website documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">als-website documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ProductFilterInfoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/product-filter-info/product-filter-info.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-product-filter-info</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./product-filter-info.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./product-filter-info.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filter$">filter$</a>
+                            </li>
+                            <li>
+                                <a href="#filterCategories$">filterCategories$</a>
+                            </li>
+                            <li>
+                                <a href="#filterDesigns$">filterDesigns$</a>
+                            </li>
+                            <li>
+                                <a href="#filterRanges$">filterRanges$</a>
+                            </li>
+                            <li>
+                                <a href="#maxPrice">maxPrice</a>
+                            </li>
+                            <li>
+                                <a href="#maxPrice$">maxPrice$</a>
+                            </li>
+                            <li>
+                                <a href="#minPrice">minPrice</a>
+                            </li>
+                            <li>
+                                <a href="#minPrice$">minPrice$</a>
+                            </li>
+                            <li>
+                                <a href="#onSale$">onSale$</a>
+                            </li>
+                            <li>
+                                <a href="#subsink">subsink</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categoryNameByID">categoryNameByID</a>
+                            </li>
+                            <li>
+                                <a href="#designNameByID">designNameByID</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#rangeNameByID">rangeNameByID</a>
+                            </li>
+                            <li>
+                                <a href="#removeCategory">removeCategory</a>
+                            </li>
+                            <li>
+                                <a href="#removeDesign">removeDesign</a>
+                            </li>
+                            <li>
+                                <a href="#removeMaxPrice">removeMaxPrice</a>
+                            </li>
+                            <li>
+                                <a href="#removeMinPrice">removeMinPrice</a>
+                            </li>
+                            <li>
+                                <a href="#removeRange">removeRange</a>
+                            </li>
+                            <li>
+                                <a href="#removeSale">removeSale</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#minPriceLabel">minPriceLabel</a>
+                                </li>
+                                <li>
+                                    <a href="#maxPriceLabel">maxPriceLabel</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fs: <a href="../injectables/FilterService.html">FilterService</a>, cs: <a href="../injectables/CategoryService.html">CategoryService</a>, ds: <a href="../injectables/DesignService.html">DesignService</a>, rs: <a href="../injectables/RangeService.html">RangeService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fs</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cs</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoryService.html" target="_self" >CategoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ds</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DesignService.html" target="_self" >DesignService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rs</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RangeService.html" target="_self" >RangeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryNameByID"></a>
+                    <span class="name">
+                        <b>
+                            categoryNameByID
+                        </b>
+                        <a href="#categoryNameByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>categoryNameByID(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="designNameByID"></a>
+                    <span class="name">
+                        <b>
+                            designNameByID
+                        </b>
+                        <a href="#designNameByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>designNameByID(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rangeNameByID"></a>
+                    <span class="name">
+                        <b>
+                            rangeNameByID
+                        </b>
+                        <a href="#rangeNameByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rangeNameByID(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCategory"></a>
+                    <span class="name">
+                        <b>
+                            removeCategory
+                        </b>
+                        <a href="#removeCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeCategory(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeDesign"></a>
+                    <span class="name">
+                        <b>
+                            removeDesign
+                        </b>
+                        <a href="#removeDesign"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeDesign(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeMaxPrice"></a>
+                    <span class="name">
+                        <b>
+                            removeMaxPrice
+                        </b>
+                        <a href="#removeMaxPrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeMaxPrice()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeMinPrice"></a>
+                    <span class="name">
+                        <b>
+                            removeMinPrice
+                        </b>
+                        <a href="#removeMinPrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeMinPrice()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeRange"></a>
+                    <span class="name">
+                        <b>
+                            removeRange
+                        </b>
+                        <a href="#removeRange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeRange(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeSale"></a>
+                    <span class="name">
+                        <b>
+                            removeSale
+                        </b>
+                        <a href="#removeSale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeSale()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filter$"></a>
+                        <span class="name">
+                            <b>
+                            filter$</b>
+                            <a href="#filter$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Observable&lt;ProductFilter&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filterCategories$"></a>
+                        <span class="name">
+                            <b>
+                            filterCategories$</b>
+                            <a href="#filterCategories$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filterDesigns$"></a>
+                        <span class="name">
+                            <b>
+                            filterDesigns$</b>
+                            <a href="#filterDesigns$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filterRanges$"></a>
+                        <span class="name">
+                            <b>
+                            filterRanges$</b>
+                            <a href="#filterRanges$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxPrice"></a>
+                        <span class="name">
+                            <b>
+                            maxPrice</b>
+                            <a href="#maxPrice"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>number | undefined</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxPrice$"></a>
+                        <span class="name">
+                            <b>
+                            maxPrice$</b>
+                            <a href="#maxPrice$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;number | undefined&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minPrice"></a>
+                        <span class="name">
+                            <b>
+                            minPrice</b>
+                            <a href="#minPrice"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>number | undefined</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minPrice$"></a>
+                        <span class="name">
+                            <b>
+                            minPrice$</b>
+                            <a href="#minPrice$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;number | undefined&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSale$"></a>
+                        <span class="name">
+                            <b>
+                            onSale$</b>
+                            <a href="#onSale$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subsink"></a>
+                        <span class="name">
+                            <b>
+                            subsink</b>
+                            <a href="#subsink"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new SubSink()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minPriceLabel"></a>
+                        <span class="name"><b>minPriceLabel</b><a href="#minPriceLabel"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>minPriceLabel()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:68</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxPriceLabel"></a>
+                        <span class="name"><b>maxPriceLabel</b><a href="#maxPriceLabel"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>maxPriceLabel()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/shared/components/product-filter-info/product-filter-info.component.ts:76</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { SubSink } from &#x27;subsink&#x27;;
+
+import { ProductFilter } from &#x27;./../../../models/product-filter.model&#x27;;
+import { CategoryService } from &#x27;./../../../services/category.service&#x27;;
+import { DesignService } from &#x27;./../../../services/design.service&#x27;;
+import { FilterService } from &#x27;./../../../services/filter.service&#x27;;
+import { RangeService } from &#x27;./../../../services/range.service&#x27;;
+
+@Component({
+  selector: &#x27;app-product-filter-info&#x27;,
+  templateUrl: &#x27;./product-filter-info.component.html&#x27;,
+  styleUrls: [&#x27;./product-filter-info.component.scss&#x27;],
+})
+export class ProductFilterInfoComponent implements OnInit {
+  filter$: Observable&lt;ProductFilter&gt;;
+  filterCategories$: Observable&lt;string[]&gt;;
+  filterRanges$: Observable&lt;string[]&gt;;
+  filterDesigns$: Observable&lt;string[]&gt;;
+  minPrice$: Observable&lt;number | undefined&gt;;
+  minPrice: number | undefined;
+  maxPrice: number | undefined;
+  maxPrice$: Observable&lt;number | undefined&gt;;
+  onSale$: Observable&lt;boolean&gt;;
+
+  subsink &#x3D; new SubSink();
+  constructor(
+    private fs: FilterService,
+    private cs: CategoryService,
+    private ds: DesignService,
+    private rs: RangeService
+  ) {
+    this.filter$ &#x3D; this.fs.productFilter;
+    this.filterCategories$ &#x3D; this.fs.filterCategoryIDs;
+    this.filterRanges$ &#x3D; this.fs.filterRangeIDs;
+    this.filterDesigns$ &#x3D; this.fs.filterDesignIDs;
+    this.minPrice$ &#x3D; this.fs.filterMinPrice;
+    this.maxPrice$ &#x3D; this.fs.filterMaxPrice;
+    this.onSale$ &#x3D; this.fs.filterSale;
+
+    const maxPriceSub &#x3D; this.maxPrice$.subscribe((n) &#x3D;&gt; (this.maxPrice &#x3D; n));
+    const minPriceSub &#x3D; this.minPrice$.subscribe((n) &#x3D;&gt; (this.minPrice &#x3D; n));
+
+    this.subsink.add(maxPriceSub, minPriceSub);
+  }
+
+  ngOnInit(): void {}
+
+  categoryNameByID(id: string) {
+    const name &#x3D; this.cs.getNameByID(id);
+    if (name &#x3D;&#x3D; &#x27;&#x27;) return id;
+    else return name;
+  }
+
+  rangeNameByID(id: string) {
+    const name &#x3D; this.rs.getNameByID(id);
+    if (name &#x3D;&#x3D; &#x27;&#x27;) return id;
+    else return name;
+  }
+
+  designNameByID(id: string) {
+    const name &#x3D; this.ds.getNameByID(id);
+    if (name &#x3D;&#x3D; &#x27;&#x27;) return id;
+    else return name;
+  }
+
+  get minPriceLabel() {
+    if (this.minPrice &#x3D;&#x3D; undefined) {
+      return &#x27;&#x27;;
+    } else {
+      return &#x60;Min R${this.minPrice.toFixed(2)}&#x60;;
+    }
+  }
+
+  get maxPriceLabel() {
+    if (this.maxPrice &#x3D;&#x3D; undefined) {
+      return &#x27;&#x27;;
+    } else {
+      return &#x60;Max R${this.maxPrice.toFixed(2)}&#x60;;
+    }
+  }
+
+  removeCategory(id: string) {
+    this.fs.deleteCategory(id);
+  }
+
+  removeRange(id: string) {
+    this.fs.deleteRange(id);
+  }
+
+  removeDesign(id: string) {
+    this.fs.deleteDesign(id);
+  }
+
+  removeMinPrice() {
+    this.fs.removeMinPrice();
+  }
+
+  removeMaxPrice() {
+    this.fs.removeMaxPrice();
+  }
+
+  removeSale() {
+    this.fs.setSaleFilter(false);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;(filter$ | async)?.hasClearableFilter&quot; class&#x3D;&quot;container&quot;&gt;
+  &lt;div class&#x3D;&quot;filter&quot;&gt;Filters&lt;/div&gt;
+  &lt;p-chip
+    (onRemove)&#x3D;&quot;removeCategory(catID)&quot;
+    styleClass&#x3D;&quot;custom-chip cat-chip&quot;
+    *ngFor&#x3D;&quot;let catID of filterCategories$ | async&quot;
+    [removable]&#x3D;&quot;true&quot;
+    [label]&#x3D;&quot;&#x27;Category: &#x27; + categoryNameByID(catID)&quot;
+  &gt;&lt;/p-chip&gt;
+  &lt;p-chip
+    (onRemove)&#x3D;&quot;removeRange(rangeID)&quot;
+    styleClass&#x3D;&quot;custom-chip range-chip&quot;
+    *ngFor&#x3D;&quot;let rangeID of filterRanges$ | async&quot;
+    [removable]&#x3D;&quot;true&quot;
+    [label]&#x3D;&quot;&#x27;Range: &#x27; + rangeNameByID(rangeID)&quot;
+  &gt;&lt;/p-chip&gt;
+  &lt;p-chip
+    (onRemove)&#x3D;&quot;removeDesign(designID)&quot;
+    styleClass&#x3D;&quot;custom-chip design-chip&quot;
+    *ngFor&#x3D;&quot;let designID of filterDesigns$ | async&quot;
+    [removable]&#x3D;&quot;true&quot;
+    [label]&#x3D;&quot;&#x27;Design: &#x27; + designNameByID(designID)&quot;
+  &gt;&lt;/p-chip&gt;
+  &lt;p-chip
+    [removable]&#x3D;&quot;true&quot;
+    (onRemove)&#x3D;&quot;removeMinPrice()&quot;
+    styleClass&#x3D;&quot;custom-chip price-chip&quot;
+    *ngIf&#x3D;&quot;minPrice$ | async&quot;
+    [label]&#x3D;&quot;minPriceLabel&quot;
+  &gt;&lt;/p-chip&gt;
+  &lt;p-chip
+    [removable]&#x3D;&quot;true&quot;
+    (onRemove)&#x3D;&quot;removeMaxPrice()&quot;
+    styleClass&#x3D;&quot;custom-chip price-chip&quot;
+    *ngIf&#x3D;&quot;maxPrice$ | async&quot;
+    [label]&#x3D;&quot;maxPriceLabel&quot;
+  &gt;&lt;/p-chip&gt;
+  &lt;p-chip
+    *ngIf&#x3D;&quot;onSale$ | async&quot;
+    [label]&#x3D;&quot;&#x27;On Sale&#x27;&quot;
+    styleClass&#x3D;&quot;custom-chip sale-chip&quot;
+    [removable]&#x3D;&quot;true&quot;
+    (onRemove)&#x3D;&quot;removeSale()&quot;
+  &gt;&lt;/p-chip&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./product-filter-info.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">div.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+::ng-deep .custom-chip {
+  height: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+::ng-deep .cat-chip {
+  background-color: rgb(103, 156, 197);
+}
+
+::ng-deep .range-chip {
+  background-color: rgb(228, 146, 217);
+}
+
+::ng-deep .design-chip {
+  background-color: rgb(227, 243, 138);
+}
+
+::ng-deep .price-chip {
+  background-color: rgb(161, 253, 189);
+}
+
+::ng-deep .sale-chip {
+  background-color: rgb(233, 141, 141);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="(filter$ | async)?.hasClearableFilter" class="container">  <div class="filter">Filters</div>  <p-chip    (onRemove)="removeCategory(catID)"    styleClass="custom-chip cat-chip"    *ngFor="let catID of filterCategories$ | async"    [removable]="true"    [label]="\'Category: \' + categoryNameByID(catID)"  ></p-chip>  <p-chip    (onRemove)="removeRange(rangeID)"    styleClass="custom-chip range-chip"    *ngFor="let rangeID of filterRanges$ | async"    [removable]="true"    [label]="\'Range: \' + rangeNameByID(rangeID)"  ></p-chip>  <p-chip    (onRemove)="removeDesign(designID)"    styleClass="custom-chip design-chip"    *ngFor="let designID of filterDesigns$ | async"    [removable]="true"    [label]="\'Design: \' + designNameByID(designID)"  ></p-chip>  <p-chip    [removable]="true"    (onRemove)="removeMinPrice()"    styleClass="custom-chip price-chip"    *ngIf="minPrice$ | async"    [label]="minPriceLabel"  ></p-chip>  <p-chip    [removable]="true"    (onRemove)="removeMaxPrice()"    styleClass="custom-chip price-chip"    *ngIf="maxPrice$ | async"    [label]="maxPriceLabel"  ></p-chip>  <p-chip    *ngIf="onSale$ | async"    [label]="\'On Sale\'"    styleClass="custom-chip sale-chip"    [removable]="true"    (onRemove)="removeSale()"  ></p-chip></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartOverlayComponent', 'selector': 'app-cart-overlay'},{'name': 'CategoryCardComponent', 'selector': 'app-category-card'},{'name': 'CategoryCatalogueComponent', 'selector': 'app-category-catalogue'},{'name': 'CommunityComponent', 'selector': 'app-community'},{'name': 'DesignCardComponent', 'selector': 'app-design-card'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'OrderFormComponent', 'selector': 'app-order-form'},{'name': 'OrderFormPageComponent', 'selector': 'app-order-form-page'},{'name': 'OrderFormProductComponent', 'selector': 'app-order-form-product'},{'name': 'ProductBreadcrumbsComponent', 'selector': 'app-product-breadcrumbs'},{'name': 'ProductCardComponent', 'selector': 'app-product-card'},{'name': 'ProductCatalogueComponent', 'selector': 'app-product-catalogue'},{'name': 'ProductCatalogueInfobarComponent', 'selector': 'app-product-catalogue-infobar'},{'name': 'ProductCatalogueInfobarComponent', 'selector': 'app-product-catalogue-infobar'},{'name': 'ProductFilterComponent', 'selector': 'app-product-filter'},{'name': 'ProductFilterComponent', 'selector': 'app-product-filter'},{'name': 'ProductFilterInfoComponent', 'selector': 'app-product-filter-info'},{'name': 'ProductFilterInfoComponent', 'selector': 'app-product-filter-info'},{'name': 'ProductImageGalleryComponent', 'selector': 'app-product-image-gallery'},{'name': 'ProductImageGalleryComponent', 'selector': 'app-product-image-gallery'},{'name': 'ProductPageComponent', 'selector': 'app-product-page'},{'name': 'ProductSkeletonComponent', 'selector': 'app-product-skeleton'},{'name': 'RangeCatalogueComponent', 'selector': 'app-range-catalogue'},{'name': 'RangeDesignCatalogueComponent', 'selector': 'app-range-design-catalogue'},{'name': 'RangesShowcaseComponent', 'selector': 'app-ranges-showcase'},{'name': 'ShopComponent', 'selector': 'app-shop'},{'name': 'StoryComponent', 'selector': 'app-story'},{'name': 'SubscribeComponent', 'selector': 'app-subscribe'},{'name': 'WholesaleLandingComponent', 'selector': 'app-wholesale-landing'}];
+    var DIRECTIVES = [{'name': 'ButtonDirective', 'selector': '[appButton]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProductFilterInfoComponent-1'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductFilterInfoComponent-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
